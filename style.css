@@ -1,0 +1,146 @@
+/* 基礎重設與字體設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    color: #475569;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    
+    /* 🌟 1. 載入你的背景圖片 */
+    background-image: url('bg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* 🌟 2. 核心：用虛擬元素製作一個滿版、模糊的毛玻璃遮罩 */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 設定模糊度，數字越大越模糊，8px - 12px 效果最好 */
+    backdrop-filter: blur(8px) brightness(95%); 
+    -webkit-backdrop-filter: blur(10px) brightness(95%);
+    /* 疊一層淡淡的半透明白紗，維持整體亮色調 */
+    background-color: rgba(244, 246, 248, 0.65); 
+    z-index: 1;
+}
+
+/* 🌟 3. 確保你的主容器內容不會被模糊濾鏡影響 */
+.container {
+    width: 100%;
+    max-width: 580px;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+    z-index: 2; /* 讓內容浮在模糊背景之上 */
+}
+
+/* 個人檔案區樣式 */
+.profile {
+    margin-bottom: 35px;
+}
+
+.avatar {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(104, 130, 158, 0.1);
+    margin-bottom: 15px;
+}
+
+.name {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #1e293b;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.bio {
+    font-size: 0.95rem;
+    color: #64748b;
+    font-weight: 300;
+}
+
+/* 連結按鈕區 */
+.links-area {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+/* 預設按鈕：優雅霧藍色 */
+.link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 16px 20px;
+    background-color: #68829e; /* 核心質感霧藍色 */
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(104, 130, 158, 0.15);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid transparent;
+}
+
+/* 圖示固定靠左，文字居中 */
+.btn-icon {
+    position: absolute;
+    left: 24px;
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* 一般按鈕懸停：微幅加深並亮起 */
+.link-btn:hover {
+    transform: translateY(-3px);
+    background-color: #556f8a; /* 稍微深一點的夜幕藍 */
+    box-shadow: 0 10px 20px rgba(104, 130, 158, 0.25);
+}
+
+/* 🌟 賣貨便按鈕：獨立視覺微調（經典暖橘色） */
+.myship-btn {
+    background-color: #f48024; /* 賣貨便品牌橘色 */
+    color: #ffffff;
+    box-shadow: 0 4px 10px rgba(244, 128, 36, 0.2); /* 讓陰影也帶有一點暖色調 */
+}
+
+/* 賣貨便按鈕懸停：微幅加深 */
+.myship-btn:hover {
+    background-color: #e0701b; /* 懸停時轉為深橘色 */
+    box-shadow: 0 10px 20px rgba(244, 128, 36, 0.3);
+}
+}
+
+.link-btn:active {
+    transform: translateY(-1px);
+}
+
+/* 頁尾 */
+.footer {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    letter-spacing: 1px;
+}
+
