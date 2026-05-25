@@ -6,8 +6,8 @@
 }
 
 body {
-    /* 🌟 電腦優先吃新細明體，iPhone 則會自動吃到內建的 Songti TC（蘋果宋體） */
-    font-family: 'PMingLiU', '新細明體', 'Songti TC', 'STSong', serif;
+    /* 🌟 iPhone 復古字體終極配方：優先用宋體，沒有就用標楷體，電腦則用新細明體 */
+    font-family: 'Songti TC', 'PMingLiU', '新細明體', 'Kaiti TC', 'BiauKai', serif;
     
     color: #475569;
     min-height: 100vh;
