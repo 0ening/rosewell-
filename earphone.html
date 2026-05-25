@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: "PML", 'PMingLiU', '新細明體', serif;
-            background-image: url('r.jpg'); /* 沿用你好看的背景圖 */
+            background-image: url('r.jpg'); /* 沿用好看的背景圖 */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -31,7 +31,7 @@
         .counter-box {
             position: relative;
             z-index: 2;
-            background-color: #99ffcc; /* 沿用你最愛的薄荷綠 */
+            background-color: #99ffcc; /* 薄荷綠 */
             border: 1px solid #55cc99;
             border-radius: 4px; /* 無名小站方塊感 */
             padding: 40px 30px;
@@ -45,7 +45,6 @@
             color: #000000;
             margin-bottom: 20px;
         }
-        /* 復古計數器外框 */
         .number-area {
             display: inline-block;
             background: #000000; /* 經典黑底框 */
@@ -54,13 +53,12 @@
             margin: 10px 0;
             box-shadow: inset 0 0 10px rgba(204, 102, 255, 0.5);
         }
-        /* 綠色電子跳動數字 */
         .custom-number {
             font-size: 2.5rem;
             font-weight: bold;
             color: #00ffcc; /* 薄荷綠電子字 */
             letter-spacing: 4px;
-            font-family: monospace, serif; /* 讓數字等寬才像計數器 */
+            font-family: monospace, serif;
             text-shadow: 0px 0px 8px #00ffcc, 0px 0px 3px #ffffff;
         }
     </style>
@@ -77,46 +75,51 @@
         </div>
         
         <p style="color: #1e293b; margin-top: 20px; font-size: 1.1rem;">位會員</p>
-        <p style="color: #64748b; margin-top: 10px; font-size: 0.8rem;">★有線耳機復活計畫編號★</p>
+        <p style="color: #64748b; margin-top: 10px; font-size: 0.8rem;">★您的編號是加入會員的順序★</p>
     </div>
 
     <script>
         const numberElement = document.getElementById('member-id');
         let finalNumber = 1; 
-        const duration = 1500; // 動態滾動持續 1.5 秒
+        let isLoaded = false;
+        const duration = 1500; // 滾動持續 1.5 秒
         let startTime = null;
 
-        // 🌟 換成 2026 最新、超級穩定的 Hits Counter API
-        // 它會根據你的專屬網址，只要有人進來就確實 +1 累加
-        fetch('https://hits.seeyoufarm.com/api/count/incr/badge.json?url=https://0ening.github.io/rosewell-/earphone-plan-2026')
-            .then(res => res.json())
-            .then(data => {
-                // 這裡拿到的 data.value 就是真正累加的點擊次數！
-                finalNumber = data.value;
-            })
-            .catch(err => {
-                // 如果真的倒楣遇到網路不穩，就用基礎數字保底
-                finalNumber = 1;
-            });
+        // 🌟 這裡請換成你在步驟三複製的那一長串 Google GAS 網址 🌟
+        const gasUrl = https://script.google.com/macros/s/AKfycbzJDHInkQ5G1_rzHGT2dRBbuJSJyJ0l485zbrEpuwWq60PIU983J9CVrwA1qd4pCPpSGg/exec;
 
-        // 數字疯狂閃爍跳動的特效
+        // 去跟你的雲端試算表要即時更新的累加數字
+        if(gasUrl.indexOf('http') === 0) {
+            fetch(gasUrl)
+                .then(res => res.json())
+                .then(data => {
+                    finalNumber = data.value;
+                    isLoaded = true;
+                })
+                .catch(err => {
+                    finalNumber = 1;
+                    isLoaded = true;
+                });
+        } else {
+            isLoaded = true;
+        }
+
+        // 像抽獎機瘋狂滾動數字的無名小站復古特效
         function updateCounter(currentTime) {
             if (!startTime) startTime = currentTime;
             const elapsedTime = currentTime - startTime;
             
-            if (elapsedTime < duration) {
-                // 在 1.5 秒內，讓數字瘋狂隨機變動（製造抽獎、計數器跳動感）
+            // 當時間還沒到，或者 Google 試算表還沒回傳數字時，讓數字保持瘋狂跳動滾動
+            if (elapsedTime < duration || !isLoaded) {
                 const randomDigits = Math.floor(Math.random() * 900000) + 100000;
                 numberElement.innerText = randomDigits;
-                
                 requestAnimationFrame(updateCounter);
             } else {
-                // 時間到，精準停在真正的後台累加號碼，並補滿 6 位數
+                // 資料載入完成且時間到，咔一聲停在真正的 6 位數累加數字！
                 numberElement.innerText = String(finalNumber).padStart(6, '0');
             }
         }
 
-        // 開始執行滾動動畫
         requestAnimationFrame(updateCounter);
     </script>
 
