@@ -16,7 +16,7 @@ body {
     position: relative;
     
     /* 🌟 1. 載入你的背景圖片 */
-    background-image: url('bg.jpg'); 
+    background-image: url('b.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
