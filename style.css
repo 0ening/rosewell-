@@ -88,7 +88,8 @@ body::before {
 .links-area {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px; /* 🌟 稍微縮小按鈕之間的間距，讓清單更緊湊 */
+    align-items: center; /* 🌟 讓縮小後的按鈕能整齊對齊在畫面正中間 */
     margin-bottom: 40px;
 }
 
@@ -98,19 +99,36 @@ body::before {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 16px 20px;
+    
+    /* 🌟 修改 1：上下內距從 14px 縮小到 10px，讓按鈕變扁 */
+    padding: 10px 20px; 
+    
+    /* 🌟 修改 2：限制最大寬度，讓它不再是滿版大方塊，更像點擊一條網址 */
+    width: 100%;
+    max-width: 360px; 
+    
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 4px;
     font-weight: 500;
-    font-size: 0.95rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border: 1px solid transparent;
+    
+    /* 🌟 修改 3：字體稍微縮小一點點，看起來更精緻 */
+    font-size: 0.9rem; 
+    
+    box-shadow: none; 
+    border: 1px solid #000000; 
+    transition: all 0.2s ease;
 }
 
-/* 按鈕內的社群圖示預設設定 */
-.link-btn .btn-icon {
-    color: inherit; /* 讓圖示自動繼承文字顏色 */
+/* 自訂圖示的尺寸與位置設定（等比例縮小版） */
+.btn-icon-custom {
+    position: absolute;
+    left: 4px;       
+    
+    /* 🌟 修改 4：原本是 60px，縮小配合扁按鈕的尺寸 */
+    width: 40px;       
+    height: 40px;      
+    
+    object-fit: contain;
 }
 
 /* 🟢 薄荷綠色按鈕 (用於 YouTube、貼圖、復活計畫) */
