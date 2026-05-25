@@ -110,13 +110,13 @@ body::before {
 
 /* 🟢 薄荷綠色按鈕 (用於 Dino, Frog, YouTube) */
 .btn-green {
-    background-color: #ccff66;
+    background-color: #79d2a6;
     color: #000000; /* 🌟 因為薄荷綠很亮，文字與圖示要用深色才會清晰 */
 }
 
 .btn-green:hover {
     transform: translateY(-3px);
-    background-color: #66cc00; /* 滑鼠移過去稍微加深 */
+    background-color: #53c68c; /* 滑鼠移過去稍微加深 */
     box-shadow: 0 10px 20px rgba(0, 255, 204, 0.25);
 }
 
