@@ -6,8 +6,8 @@
 }
 
 body {
-    /* 🌟 修改這一行：優先讀取我們剛才引入的線上新細明體（"PML"） */
-    font-family: "PML", 'PMingLiU', '新細明體', 'MingLiU', serif;
+    /* 🌟 換成無名小站經典的「新細明體」 */
+    font-family: 'PMingLiU', '新細明體', 'MingLiU', '細明體', serif;
     
     color: #475569;
     min-height: 100vh;
@@ -17,7 +17,7 @@ body {
     padding: 20px;
     position: relative;
     
-    /* ... 下面維持你原本的背景設定 ... */
+    /* 🌟 背景圖片設定 */
     background-image: url('r.jpg'); 
     background-size: cover;
     background-position: center;
@@ -65,40 +65,80 @@ body::before {
     box-shadow: 0 4px 12px rgba(104, 130, 158, 0.1);
     margin-bottom: 15px;
 }
+
 .name {
     font-size: 1.4rem;
     font-weight: 500;
     color: #1e293b;
     margin-bottom: 8px;
     letter-spacing: 0.5px;
-    /* 🔮 標題維持超酷的紫色發光 */
-    text-shadow: 0px 0px 12px #cc66ff, 0px 0px 5px #b800ff;
+    /* 淡淡的白色底稿陰影，讓網頁名字更清晰 */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .bio {
     font-size: 0.95rem;
     color: #64748b;
     font-weight: 300;
-    /* 🔮 副標題也維持超酷的紫色發光 */
-    text-shadow: 0px 0px 12px #cc66ff, 0px 0px 5px #b800ff;
+    /* 淡淡的白色底稿陰影 */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* 連結按鈕區 */
+.links-area {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+/* 基礎連結按鈕設定（共用外觀） */
+.link-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 16px 20px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid transparent;
+}
+
+/* 按鈕內的社群圖示預設設定 */
+.link-btn .btn-icon {
+    color: inherit; /* 讓圖示自動繼承文字顏色 */
 }
 
 /* 🟢 薄荷綠色按鈕 (用於 Dino, Frog, YouTube) */
 .btn-green {
     background-color: #99ffcc;
     color: #000000; 
-    border: 1px solid #55cc99; 
-    /* 🌟 修改：按鈕文字改為雙層「純白光」發光效果，黑字會超級立體 */
+    /* 🌟 新增：字體背後均勻散開的厚白光發光效果 */
     text-shadow: 0px 0px 8px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, 1);
+}
+
+.btn-green:hover {
+    transform: translateY(-3px);
+    background-color: #ccffe6; 
+    box-shadow: 0 10px 20px rgba(0, 255, 204, 0.25);
 }
 
 /* 🟡 暖黃色按鈕 (用於賣貨便) */
 .btn-yellow {
-    background-color: #dda136; 
+    background-color: #dda136; /* 修正為你最新上傳的質感美式黃色 */
     color: #000000; 
-    border: 1px solid #b37d22; 
-    /* 🌟 修改：賣貨便按鈕也改為雙層「純白光」發光 */
+    /* 🌟 新增：黃色按鈕黑字專用的亮白發光 */
     text-shadow: 0px 0px 8px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, 1);
+}
+
+.btn-yellow:hover {
+    transform: translateY(-3px);
+    background-color: #c48e2b; 
+    box-shadow: 0 10px 20px rgba(221, 161, 54, 0.25); 
 }
 
 /* 滑鼠點擊時的微幅反饋 */
