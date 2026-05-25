@@ -154,7 +154,7 @@ body::before {
 
 /* 🟡 賣貨便粉色按鈕 (已改成 #ffcccc) */
 .btn-yellow {
-    background-color: #ffcccc; 
+    background-color: #ffccff; 
     color: #000000; 
     border: 1px solid #ff9999; /* 🌟 搭配粉紅色的邊框 */
     /* 🌟 幫你把背後的光暈也換成淡淡的粉紅光 */
