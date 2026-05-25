@@ -61,34 +61,145 @@
             font-family: monospace, serif;
             text-shadow: 0px 0px 8px #00ffcc, 0px 0px 3px #ffffff;
         }
+
+        /* 🌟 1. 規則小文字連結樣式 */
+        .rules-link {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #1e293b;
+            text-decoration: none;
+            border-bottom: 1px dashed #1e293b; /* 復古虛線底線 */
+            transition: all 0.2s ease;
+        }
+        .rules-link:hover {
+            color: #cc66ff; /* 滑鼠移過去變紫色 */
+            border-bottom: 1px dashed #cc66ff;
+            text-shadow: 0px 0px 5px rgba(204, 102, 255, 0.5);
+        }
+
+        /* 🌟 2. 彈出視窗的全畫面半透明黑底遮罩 */
+        .modal-overlay {
+            display: none; /* 預設隱藏 */
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 100; /* 確保浮在最上層 */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 🌟 3. 彈出視窗的白色復古框框本體 */
+        .modal-content {
+            background-color: #f4f6f8; 
+            border: 2px solid #000000; /* 經典黑粗框 */
+            box-shadow: 4px 4px 0px rgba(204, 102, 255, 0.6); /* 紫色錯位陰影 */
+            width: 85%;
+            max-width: 350px;
+            padding: 25px 20px;
+            position: relative;
+            text-align: left;
+        }
+
+        /* 🌟 4. 視窗右上角的復古 X 關閉按鈕 */
+        .close-btn {
+            position: absolute;
+            top: 6px; right: 6px;
+            background: #ffcccc; /* 偷用你賣貨便的粉紅色 */
+            border: 1px solid #000000;
+            font-family: monospace, serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #000;
+            cursor: pointer;
+            padding: 2px 6px;
+        }
+        .close-btn:hover {
+            background: #ff9999;
+        }
+
+        /* 視窗內部的文字排版 */
+        .rules-title {
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 15px;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .rules-list {
+            margin: 0;
+            padding-left: 20px;
+            color: #1e293b;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        .rules-list li { margin-bottom: 8px; }
     </style>
 </head>
 <body>
 
     <div class="counter-box">
-        <h2>✞ 有線耳機復活計畫 ♫</h2>
-        <p style="color: #339966; margin-bottom: 10px;">恭喜您成為有線耳機復活計畫的一員！</p>
+        <h2>✮ 有線耳機復活計畫 ♫</h2>
+        <p style="color: #1e293b; margin-bottom: 10px;">恭喜你成為有線耳機復活計畫的一員！</p>
         <p style="color: #1e293b; margin-bottom: 20px; font-size: 1.1rem;">您是第</p>
         
         <div class="number-area">
             <span id="member-id" class="custom-number">000000</span>
         </div>
         
-        <p style="color: #1e293b; margin-top: 20px; font-size: 1.1rem;">位會員</p>
-        <p style="color: #64748b; margin-top: 10px; font-size: 0.8rem;">★ 此號碼是您加入會員的順序 ★</p>
+        <p style="color: #1e293b; margin-top: 20px; font-size: 1.1rem;">位加入的會員</p>
+        
+        <a href="#" id="open-rules-btn" class="rules-link">【 點我查看會員規則 】</a>
+    </div>
+
+    <div id="rules-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-rules-btn" class="close-btn">X</button>
+            <div class="rules-title">★ 秘密會員規則 ★</div>
+            <ul class="rules-list">
+                <li>1.需每天帶有線耳機出門。</li>
+                <li>2.擁有【有線耳機復活計畫】小卡。</li>
+                <li>3.尊重所有費型的音樂，並遵守「不批判、不比較、不評論」的原則。</li>
+                <li>4.音樂沒有優劣之分，所有人都能擁有自己的信仰。</li>
+            </ul>
+        </div>
     </div>
 
     <script>
+        // ======= 彈出視窗控制邏輯 =======
+        const modal = document.getElementById('rules-modal');
+        const openBtn = document.getElementById('open-rules-btn');
+        const closeBtn = document.getElementById('close-rules-btn');
+
+        // 點擊文字連結時打開視窗
+        openBtn.addEventListener('click', function(event) {
+            event.preventDefault(); // 阻止連結跳轉到網頁最上方
+            modal.style.display = 'flex';
+        });
+
+        // 點擊 X 按鈕時關閉視窗
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // 點擊黑色半透明遮罩(空白處)時也能關閉視窗
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // ======= 計數器動畫邏輯 =======
         const numberElement = document.getElementById('member-id');
         let finalNumber = 1; 
         let isLoaded = false;
-        const duration = 1500; // 滾動持續 1.5 秒
+        const duration = 1500; 
         let startTime = null;
 
-        // 🌟 已經幫你綁定好你專屬的 Google GAS 後台網址囉！
+        // ⚠️ 請在這裡貼回你的 Google GAS 網址！
         const gasUrl = 'https://script.google.com/macros/s/AKfycbzJDHInkQ5G1_rzHGT2dRBbuJSJyJ0l485zbrEpuwWq60PIU983J9CVrwA1qd4pCPpSGg/exec';
 
-        // 去跟你的雲端試算表要即時更新的累加數字
         if(gasUrl.indexOf('http') === 0) {
             fetch(gasUrl)
                 .then(res => res.json())
@@ -104,22 +215,18 @@
             isLoaded = true;
         }
 
-        // 像抽獎機瘋狂滾動數字的無名小站復古特效
         function updateCounter(currentTime) {
             if (!startTime) startTime = currentTime;
             const elapsedTime = currentTime - startTime;
             
-            // 當時間還沒到，或者 Google 試算表還沒回傳數字時，讓數字保持瘋狂跳動滾動
             if (elapsedTime < duration || !isLoaded) {
                 const randomDigits = Math.floor(Math.random() * 900000) + 100000;
                 numberElement.innerText = randomDigits;
                 requestAnimationFrame(updateCounter);
             } else {
-                // 資料載入完成且時間到，精準停在真正的 6 位數累加數字！
                 numberElement.innerText = String(finalNumber).padStart(6, '0');
             }
         }
-
         requestAnimationFrame(updateCounter);
     </script>
 
