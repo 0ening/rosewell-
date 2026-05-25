@@ -126,7 +126,17 @@ body::before {
     background-color: #e06124; /* 懸停時稍微加深 */
     box-shadow: 0 10px 20px rgba(243, 115, 53, 0.25);
 }
+/* 🔵 藍色系按鈕（YouTube 作業專用） */
+.btn-blue {
+    background-color: #68829e; /* 之前設定的高質感霧藍色 */
+    color: #ffffff; /* 搭配白色文字 */
+}
 
+.btn-blue:hover {
+    transform: translateY(-3px);
+    background-color: #556f8a; /* 懸停時稍微加深 */
+    box-shadow: 0 10px 20px rgba(104, 130, 158, 0.25);
+}
 /* 滑鼠點擊時的微幅反饋 */
 .link-btn:active {
     transform: translateY(-1px);
