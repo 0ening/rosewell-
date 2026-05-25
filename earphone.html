@@ -45,22 +45,22 @@
             color: #000000;
             margin-bottom: 20px;
         }
-        /* 號碼外框樣式 */
+        /* 復古計數器外框 */
         .number-area {
             display: inline-block;
-            background: #000000; /* 黑底框 */
+            background: #000000; /* 經典黑底框 */
             border: 1px dashed #ffffff;
             padding: 12px 24px;
             margin: 10px 0;
             box-shadow: inset 0 0 10px rgba(204, 102, 255, 0.5);
         }
-        /* 💡 自建的幸運發光文字編號 */
+        /* 綠色電子跳動數字 */
         .custom-number {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            color: #00ffcc; /* 薄荷綠電子數字顏色 */
-            letter-spacing: 3px;
-            font-family: monospace, serif; /* 強制讓數字等寬，更有電子感 */
+            color: #00ffcc; /* 薄荷綠電子字 */
+            letter-spacing: 4px;
+            font-family: monospace, serif; /* 讓數字等寬才像計數器 */
             text-shadow: 0px 0px 8px #00ffcc, 0px 0px 3px #ffffff;
         }
     </style>
@@ -70,26 +70,54 @@
     <div class="counter-box">
         <h2>🎧 有線耳機復活計畫 🎧</h2>
         <p style="color: #1e293b; margin-bottom: 10px;">恭喜你成為復活計畫的一員！</p>
-        <p style="color: #1e293b; margin-bottom: 20px; font-size: 1.1rem;">您的專屬會員編號為</p>
+        <p style="color: #1e293b; margin-bottom: 20px; font-size: 1.1rem;">您是第</p>
         
         <div class="number-area">
-            <span id="member-id" class="custom-number">NO.00000</span>
+            <span id="member-id" class="custom-number">000000</span>
         </div>
         
-        <p style="color: #64748b; margin-top: 20px; font-size: 0.85rem;">★ 專屬計畫編號，請截圖保存 ★</p>
+        <p style="color: #1e293b; margin-top: 20px; font-size: 1.1rem;">位會員</p>
+        <p style="color: #64748b; margin-top: 10px; font-size: 0.8rem;">★ 專屬計畫編號，請截圖保存 ★</p>
     </div>
 
     <script>
-        function generateMemberID() {
-            // 利用當前時間的毫秒數當作種子，計算出一個 120 到 999 之間的隨機流水號
-            const now = new Date();
-            const seed = now.getTime() % 880 + 120; 
+        const numberElement = document.getElementById('member-id');
+        let finalNumber = 1; // 預設第一個人是 1
+        const duration = 1500; // 動態滾動持續 1.5 秒
+        let startTime = null;
+
+        // 🌟 核心：向免費的 API 伺服器發送請求，每次有人打開網頁，該網址的數值就會自動 +1
+        // 這裡使用你的專屬 namespace 來確保計數精準不與別人重疊
+        fetch('https://api.countapi.xyz/hit/rosewell-earphone-project/visits')
+            .then(res => res.json())
+            .then(data => {
+                // 成功拿到後台累加的真正數字（例如：1, 2, 3...）
+                finalNumber = data.value;
+            })
+            .catch(err => {
+                // 如果 API 偶爾斷線，就用本地隨機數保底，絕對不破圖
+                finalNumber = Math.floor(Math.random() * 10) + 1;
+            });
+
+        // 數字像吃角子老虎機瘋狂閃爍跳動的特效
+        function updateCounter(currentTime) {
+            if (!startTime) startTime = currentTime;
+            const elapsedTime = currentTime - startTime;
             
-            // 格式化成 NO.00XXX 的帥氣樣式
-            document.getElementById('member-id').innerText = 'NO.00' + seed;
+            if (elapsedTime < duration) {
+                // 在 1.5 秒內，讓數字瘋狂隨機變動
+                const randomDigits = Math.floor(Math.random() * 900000) + 100000;
+                numberElement.innerText = randomDigits;
+                
+                requestAnimationFrame(updateCounter);
+            } else {
+                // 1.5 秒時間到，「咔」一聲停在真正的後台累加號碼，並補滿你要求的 6 位數（000001）
+                numberElement.innerText = String(finalNumber).padStart(6, '0');
+            }
         }
-        // 網頁一打開立刻執行
-        generateMemberID();
+
+        // 開始執行滾動動畫
+        requestAnimationFrame(updateCounter);
     </script>
 
 </body>
