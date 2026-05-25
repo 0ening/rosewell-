@@ -6,7 +6,7 @@
 }
 
 body {
-    /* 🌟 換成無名小站經典的「新細明體」 */
+    /* 🌟 無名小站經典的「新細明體」 */
     font-family: 'PMingLiU', '新細明體', 'MingLiU', '細明體', serif;
     
     color: #475569;
@@ -72,7 +72,7 @@ body::before {
     color: #1e293b;
     margin-bottom: 8px;
     letter-spacing: 0.5px;
-    /* 淡淡的白色底稿陰影，讓網頁名字更清晰 */
+    /* 🌟 保留你漂亮的紫色發光 */
     text-shadow: 0px 0px 12px #cc66ff;
 }
 
@@ -80,7 +80,7 @@ body::before {
     font-size: 0.95rem;
     color: #64748b;
     font-weight: 300;
-    /* 淡淡的白色底稿陰影 */
+    /* 🌟 保留你漂亮的紫色發光 */
     text-shadow: 0px 0px 12px #cc66ff;
 }
 
@@ -92,20 +92,26 @@ body::before {
     margin-bottom: 40px;
 }
 
-/* 基礎連結按鈕設定（共用外觀） */
+/* 基礎連結按鈕設定（共用外觀 - 轉為無名小站經典方塊感） */
 .link-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: 16px 20px;
+    padding: 14px 20px; /* 稍微調整上下間距更符合復古感 */
     text-decoration: none;
-    border-radius: 12px;
+    
+    /* 🌟 無名小站經典小圓角 (4px) */
+    border-radius: 4px; 
+    
     font-weight: 500;
     font-size: 0.95rem;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border: 1px solid transparent;
+    
+    /* 🌟 拿掉現代大陰影，改用復古黑細邊框 */
+    box-shadow: none; 
+    border: 1px solid #000000; 
+    
+    transition: all 0.2s ease;
 }
 
 /* 按鈕內的社群圖示預設設定 */
@@ -117,28 +123,34 @@ body::before {
 .btn-green {
     background-color: #99ffcc;
     color: #000000; 
-    /* 🌟 新增：字體背後均勻散開的厚白光發光效果 */
-    text-shadow: 0px 0px 8px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, 1);
+    border: 1px solid #55cc99; /* 綠色細邊框 */
+    /* 🌟 文字套用雙層魔幻紫色發光！ */
+    text-shadow: 0px 0px 6px #b800ff, 0px 0px 12px #cc66ff; 
 }
 
+/* 🟢 薄荷綠 Hover：變成無名小站最愛的黑色虛線邊框 */
 .btn-green:hover {
-    transform: translateY(-3px);
+    transform: none; /* 拿掉 modern 的往上浮動 */
     background-color: #ccffe6; 
-    box-shadow: 0 10px 20px rgba(0, 255, 204, 0.25);
+    border: 1px dashed #000000; /* 黑色虛線邊框 🌟 */
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15); /* 經典硬邊小陰影 */
 }
 
 /* 🟡 暖黃色按鈕 (用於賣貨便) */
 .btn-yellow {
-    background-color: #dda136; /* 修正為你最新上傳的質感美式黃色 */
+    background-color: #dda136; 
     color: #000000; 
-    /* 🌟 新增：黃色按鈕黑字專用的亮白發光 */
-    text-shadow: 0px 0px 8px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, 1);
+    border: 1px solid #b37d22; /* 黃色細邊框 */
+    /* 🌟 文字同樣套用雙層魔幻紫色發光！ */
+    text-shadow: 0px 0px 6px #b800ff, 0px 0px 12px #cc66ff;
 }
 
+/* 🟡 暖黃色 Hover：同樣變成黑色虛線邊框 */
 .btn-yellow:hover {
-    transform: translateY(-3px);
-    background-color: #c48e2b; 
-    box-shadow: 0 10px 20px rgba(221, 161, 54, 0.25); 
+    transform: none;
+    background-color: #e6b35c; 
+    border: 1px dashed #000000; /* 黑色虛線邊框 🌟 */
+    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
 }
 
 /* 滑鼠點擊時的微幅反饋 */
@@ -164,5 +176,7 @@ body::before {
 .footer {
     font-size: 0.8rem;
     color: #94a3b8;
+    letter-spacing: 1px;
+}
     letter-spacing: 1px;
 }
