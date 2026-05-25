@@ -113,33 +113,44 @@ body::before {
     color: inherit; /* 讓圖示自動繼承文字顏色 */
 }
 
-/* 🟢 薄荷綠色按鈕 (用於 Dino, Frog, YouTube) */
+/* 🟢 薄荷綠色按鈕 (用於 YouTube、貼圖、復活計畫) */
 .btn-green {
     background-color: #99ffcc;
     color: #000000; 
-    /* 🌟 新增：字體背後均勻散開的厚白光發光效果 */
+    border: 1px solid #55cc99; 
+    /* 🌟 新增：讓按鈕背後散發淡淡的薄荷綠光暈 */
+    box-shadow: 0px 0px 15px rgba(85, 204, 153, 0.6);
+    /* 保持你原本設定的文字白光 */
     text-shadow: 0px 0px 8px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, 1);
 }
 
+/* 🟢 薄荷綠 Hover：滑鼠移過去時光暈變亮 */
 .btn-green:hover {
-    transform: translateY(-3px);
+    transform: none; 
     background-color: #ccffe6; 
-    box-shadow: 0 10px 20px rgba(0, 255, 204, 0.25);
+    border: 1px dashed #000000; 
+    /* 🌟 滑鼠移過去時，綠光稍微放大變亮，並保留無名小站的復古硬陰影 */
+    box-shadow: 0px 0px 20px rgba(85, 204, 153, 0.9), 2px 2px 0px rgba(0, 0, 0, 0.15); 
 }
 
 /* 🟡 暖黃色按鈕 (用於賣貨便) */
 .btn-yellow {
-    background-color: #dda136; /* 修正為你最新上傳的質感美式黃色 */
+    background-color: #dda136; 
     color: #000000; 
-    /* 🌟 新增：黃色按鈕黑字專用的亮白發光 */
+    border: 1px solid #b37d22; 
+    /* 🌟 讓黃色按鈕也散發淡淡的綠光 (如果你想改發黃光，可以把顏色改成 rgba(221, 161, 54, 0.6)) */
+    box-shadow: 0px 0px 15px rgba(85, 204, 153, 0.6);
+    /* 保持文字白光 */
     text-shadow: 0px 0px 8px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, 1);
 }
 
+/* 🟡 暖黃色 Hover */
 .btn-yellow:hover {
-    transform: translateY(-3px);
-    background-color: #c48e2b; 
-    box-shadow: 0 10px 20px rgba(221, 161, 54, 0.25); 
-}
+    transform: none;
+    background-color: #e6b35c; 
+    border: 1px dashed #000000; 
+    box-shadow: 0px 0px 20px rgba(85, 204, 153, 0.9), 2px 2px 0px rgba(0, 0, 0, 0.15);
+} 
 
 /* 滑鼠點擊時的微幅反饋 */
 .link-btn:active {
