@@ -6,8 +6,8 @@
 }
 
 body {
-    /* 🌟 無名小站經典的「新細明體」 */
-    font-family: 'PMingLiU', '新細明體', 'MingLiU', '細明體', serif;
+    /* 🌟 修改這一行：優先讀取我們剛才引入的線上新細明體（"PML"） */
+    font-family: "PML", 'PMingLiU', '新細明體', 'MingLiU', serif;
     
     color: #475569;
     min-height: 100vh;
@@ -17,7 +17,7 @@ body {
     padding: 20px;
     position: relative;
     
-    /* 🌟 背景圖片設定 */
+    /* ... 下面維持你原本的背景設定 ... */
     background-image: url('r.jpg'); 
     background-size: cover;
     background-position: center;
