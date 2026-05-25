@@ -6,8 +6,8 @@
 }
 
 body {
-    /* 🌟 補上 "PML"，這是呼叫線上新細明體的通關密語！ */
-    font-family: "PML", 'PMingLiU', '新細明體', 'MingLiU', '細明體', serif;
+    /* 🌟 電腦優先吃新細明體，iPhone 則會自動吃到內建的 Songti TC（蘋果宋體） */
+    font-family: 'PMingLiU', '新細明體', 'Songti TC', 'STSong', serif;
     
     color: #475569;
     min-height: 100vh;
