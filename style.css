@@ -143,12 +143,11 @@ body::before {
     color: #94a3b8;
     letter-spacing: 1px;
 }
-/* 自訂圖示的尺寸與外觀設定 */
+/* 自訂圖示的尺寸與位置設定（放大版） */
 .btn-icon-custom {
     position: absolute;
-    left: 24px;
-    width: 28px;  /* 控制圖片大小 */
-    height: 28px;
+    left: 18px;       /* 稍微往左邊靠一點，留給大圖空間 */
+    width: 36px;       /* 🌟 從 28px 放大到 36px */
+    height: 36px;      /* 🌟 從 28px 放大到 36px */
     object-fit: contain;
 }
-
