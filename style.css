@@ -120,18 +120,17 @@ body::before {
     box-shadow: 0 10px 20px rgba(0, 255, 204, 0.25);
 }
 
-/* 🟡 暖黃色按鈕 (用於賣貨便) */
+/* 🟡 暖黃色按鈕 (用於賣貨便) - 更新為新版芥末黃與黑字 */
 .btn-yellow {
-    background-color: #d9c054;
-    color: #ffffff; /* 🌟 搭配純白文字與圖示 */
+    background-color: #dda136; /* 這是你剛剛上傳的全新芥末黃色 */
+    color: #000000; /* 🌟 這裡把文字和圖示都改成純黑色 */
 }
 
 .btn-yellow:hover {
     transform: translateY(-3px);
-    background-color: #c9af43; /* 滑鼠移過去稍微加深 */
-    box-shadow: 0 10px 20px rgba(217, 192, 84, 0.25);
+    background-color: #c48e2b; /* 滑鼠移過去時，顏色會稍微加深變得更沉穩 */
+    box-shadow: 0 10px 20px rgba(221, 161, 54, 0.25); /* 陰影也配合新黃色做微調 */
 }
-
 
 /* 滑鼠點擊時的微幅反饋 */
 .link-btn:active {
@@ -141,7 +140,7 @@ body::before {
 /* 自訂圖示的尺寸與位置設定（放大版） */
 .btn-icon-custom {
     position: absolute;
-    left: 20px;       /* 調整位置 */
+    left: 36px;       /* 調整位置 */
     width: 60px;       /* 維持你設定的 60px 大小 */
     height: 60px;      /* 維持你設定的 60px 大小 */
     object-fit: contain;
@@ -149,7 +148,7 @@ body::before {
 
 /* 按鈕文字對齊與微調 */
 .link-btn .btn-text {
-    padding-left: 26px; /* 配合變大的圖示稍微往右邊縮一點 */
+    padding-left: 10px; /* 配合變大的圖示稍微往右邊縮一點 */
 }
 
 /* 頁尾 */
