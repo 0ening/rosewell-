@@ -110,7 +110,7 @@ body::before {
 
 /* 🟢 薄荷綠色按鈕 (用於 Dino, Frog, YouTube) */
 .btn-green {
-    background-color: #73e600;
+    background-color: #99ffcc;
     color: #000000; /* 🌟 因為薄荷綠很亮，文字與圖示要用深色才會清晰 */
 }
 
