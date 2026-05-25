@@ -87,7 +87,7 @@ body::before {
 .links-area {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* 🌟 稍微縮小按鈕之間的間距，讓清單更緊湊 */
+    gap: 40px; /* 🌟 稍微縮小按鈕之間的間距，讓清單更緊湊 */
     align-items: center; /* 🌟 讓縮小後的按鈕能整齊對齊在畫面正中間 */
     margin-bottom: 40px;
 }
@@ -100,7 +100,7 @@ body::before {
     position: relative;
     
     /* 🌟 修改 1：上下內距從 14px 縮小到 10px，讓按鈕變扁 */
-    padding: 5px 20px; 
+    padding: 2px 10px; 
     
     /* 🌟 修改 2：限制最大寬度，讓它不再是滿版大方塊，更像點擊一條網址 */
     width: 100%;
@@ -124,8 +124,8 @@ body::before {
     left: 4px;       
     
     /* 🌟 修改 4：原本是 60px，縮小配合扁按鈕的尺寸 */
-    width: 40px;       
-    height: 40px;      
+    width: 20px;       
+    height: 20px;      
     
     object-fit: contain;
 }
