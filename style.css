@@ -86,55 +86,64 @@ body::before {
     margin-bottom: 40px;
 }
 
-/* 預設按鈕：優雅霧藍色 */
+/* 基礎連結按鈕設定（共用外觀） */
 .link-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     padding: 16px 20px;
-    background-color: #68829e; /* 核心質感霧藍色 */
-    color: #ffffff;
+    color: #ffffff; /* 🌟 綠色與橘色底色，搭配白色文字最清晰 */
     text-decoration: none;
     border-radius: 12px;
     font-weight: 500;
     font-size: 1rem;
-    box-shadow: 0 4px 10px rgba(104, 130, 158, 0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border: 1px solid transparent;
 }
 
-/* 圖示固定靠左，文字居中 */
-.btn-icon {
-    position: absolute;
-    left: 24px;
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
+/* 🟢 綠色系按鈕（Instagram、LINE貼圖） */
+.btn-green {
+    background-color: #00ffcc; /* 這是你上傳的亮青綠色 */
+    color: #1e293b; /* 🌟 因為綠色很亮，文字改配深色字才會清晰好讀喔！ */
 }
 
-/* 一般按鈕懸停：微幅加深並亮起 */
-.link-btn:hover {
+.btn-green:hover {
     transform: translateY(-3px);
-    background-color: #556f8a; /* 稍微深一點的夜幕藍 */
-    box-shadow: 0 10px 20px rgba(104, 130, 158, 0.25);
+    background-color: #00e6b8; /* 懸停時稍微加深 */
+    box-shadow: 0 10px 20px rgba(0, 255, 204, 0.25);
 }
 
-/* 🌟 賣貨便按鈕：獨立視覺微調（經典暖橘色） */
-.myship-btn {
-    background-color: #f48024; /* 賣貨便品牌橘色 */
-    color: #ffffff;
-    box-shadow: 0 4px 10px rgba(244, 128, 36, 0.2); /* 讓陰影也帶有一點暖色調 */
+/* 🟠 橘色系按鈕（賣貨便、YouTube） */
+.btn-orange {
+    background-color: #f37335; /* 這是你上傳的經典暖橘色 */
+    color: #ffffff; /* 搭配純白文字 */
 }
 
-/* 賣貨便按鈕懸停：微幅加深 */
-.myship-btn:hover {
-    background-color: #e0701b; /* 懸停時轉為深橘色 */
-    box-shadow: 0 10px 20px rgba(244, 128, 36, 0.3);
-}
+.btn-orange:hover {
+    transform: translateY(-3px);
+    background-color: #e06124; /* 懸停時稍微加深 */
+    box-shadow: 0 10px 20px rgba(243, 115, 53, 0.25);
 }
 
+/* 滑鼠點擊時的微幅反饋 */
 .link-btn:active {
     transform: translateY(-1px);
+}
+
+/* 自訂插畫圖示的位置設定 */
+.btn-icon-custom {
+    position: absolute;
+    left: 18px;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+/* 按鈕文字對齊與微調 */
+.link-btn .btn-text {
+    padding-left: 16px;
 }
 
 /* 頁尾 */
