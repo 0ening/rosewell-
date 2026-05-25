@@ -67,7 +67,7 @@
 
     <div class="counter-box">
         <h2>🎧 有線耳機復活計畫 🎧</h2>
-        <p style="color: #1e293b; margin-bottom: 10px;">恭喜你成為復活計畫的一員！</p>
+        <p style="color: #1e293b; margin-bottom: 10px;">恭喜您成為復活計畫的一員！</p>
         <p style="color: #1e293b; margin-bottom: 20px; font-size: 1.1rem;">您是第</p>
         
         <div class="number-area">
@@ -75,7 +75,7 @@
         </div>
         
         <p style="color: #1e293b; margin-top: 20px; font-size: 1.1rem;">位會員</p>
-        <p style="color: #64748b; margin-top: 10px; font-size: 0.8rem;">★您的編號是加入會員的順序★</p>
+        <p style="color: #64748b; margin-top: 10px; font-size: 0.8rem;">★ 加入會員順序 ★</p>
     </div>
 
     <script>
@@ -85,8 +85,8 @@
         const duration = 1500; // 滾動持續 1.5 秒
         let startTime = null;
 
-        // 🌟 這裡請換成你在步驟三複製的那一長串 Google GAS 網址 🌟
-        const gasUrl = https://script.google.com/macros/s/AKfycbzJDHInkQ5G1_rzHGT2dRBbuJSJyJ0l485zbrEpuwWq60PIU983J9CVrwA1qd4pCPpSGg/exec;
+        // 🌟 已經幫你綁定好你專屬的 Google GAS 後台網址囉！
+        const gasUrl = 'https://script.google.com/macros/s/AKfycbzJDHInkQ5G1_rzHGT2dRBbuJSJyJ0l485zbrEpuwWq60PIU983J9CVrwA1qd4pCPpSGg/exec';
 
         // 去跟你的雲端試算表要即時更新的累加數字
         if(gasUrl.indexOf('http') === 0) {
@@ -115,7 +115,7 @@
                 numberElement.innerText = randomDigits;
                 requestAnimationFrame(updateCounter);
             } else {
-                // 資料載入完成且時間到，咔一聲停在真正的 6 位數累加數字！
+                // 資料載入完成且時間到，精準停在真正的 6 位數累加數字！
                 numberElement.innerText = String(finalNumber).padStart(6, '0');
             }
         }
