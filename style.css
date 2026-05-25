@@ -116,7 +116,7 @@ body::before {
 
 .btn-green:hover {
     transform: translateY(-3px);
-    background-color: #53c68c; /* 滑鼠移過去稍微加深 */
+    background-color: #99ccff; /* 滑鼠移過去稍微加深 */
     box-shadow: 0 10px 20px rgba(0, 255, 204, 0.25);
 }
 
