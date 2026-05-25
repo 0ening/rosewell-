@@ -32,10 +32,10 @@ body::before {
     width: 100%;
     height: 100%;
     /* 設定模糊度，數字越大越模糊，8px - 12px 效果最好 */
-    backdrop-filter: blur(3px) brightness(80%); 
-    -webkit-backdrop-filter: blur(8px) brightness(80%);
+    backdrop-filter: blur(2px) brightness(95%); 
+    -webkit-backdrop-filter: blur(2px) brightness(95%);
     /* 疊一層淡淡的半透明白紗，維持整體亮色調 */
-    background-color: rgba(244, 246, 248, 0.65); 
+    background-color: rgba(244, 246, 248, 0.3); 
     z-index: 1;
 }
 
