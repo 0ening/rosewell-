@@ -188,3 +188,26 @@ body::before {
     color: #94a3b8;
     letter-spacing: 1px;
 }
+/* ========================================= */
+/* 🌟 電腦版專屬排版 (螢幕寬度大於 768px 時觸發) */
+/* ========================================= */
+@media (min-width: 768px) {
+    /* 1. 稍微縮小容器，讓兩排的比例看起來最精緻 */
+    .container {
+        max-width: 750px; 
+    }
+    
+    /* 2. 開啟橫向排列，並且置中對齊 */
+    .links-area {
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 20px; /* 按鈕之間的上下左右距離 */
+    }
+    
+    /* 3. 🌟 雙排魔法：強制每個按鈕佔 50% 寬度，並扣掉中間的空隙 */
+    .link-btn {
+        width: calc(50% - 10px); 
+        max-width: 320px; /* 限制最寬度，才不會在大螢幕上變成長條形 */
+    }
+}
