@@ -36,7 +36,7 @@
             z-index: 1;
         }
         
-        /* 🌟 新增：頂部導覽列與淺螢光綠小方塊 */
+        /* 🌟 頂部導覽列與淺螢光綠小方塊 */
         .top-nav {
             position: absolute;
             top: 20px;
@@ -70,42 +70,71 @@
             color: #00bfff;
         }
         
-        /* 中間的白色主區塊 */
+        /* 中間的主容器 */
         .counter-box {
             position: relative;
             z-index: 2;
-            background-color: transparent; /* 改為透明，更融入背景 */
+            background-color: transparent; 
             padding: 35px 25px;
             text-align: center;
             max-width: 400px;
             width: 85%;
-            margin-top: 50px; /* 稍微往下推一點，避免跟導覽列重疊 */
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            margin-top: 50px; 
         }
         
+        /* 標題淺螢光綠小方塊 */
         h2 {
             font-size: 1.4rem;
             color: #000000;
             margin: 0; 
             line-height: 1.2;
             font-weight: bold;
-            text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.9);
+            
+            background-color: #ccffcc; 
+            border: 1px solid #99ff99; 
+            display: inline-block; 
+            padding: 6px 15px;
+            margin-bottom: 5px; 
+            border-radius: 0; 
+            text-shadow: none; 
         }
         
+        .info-text {
+            color: #000000; 
+            font-size: 1.05rem; 
+            font-weight: bold;
+            
+            background-color: #ccffcc;
+            border: 1px solid #99ff99;
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 0;
+            margin: 5px 0;
+            text-shadow: none; 
+        }
+        
+        /* 🌟 復原：無名小站風的復古計數器方框 */
         .number-area {
             display: inline-block;
-            margin: 12px 0;
+            background-color: #000000; /* 經典黑底 */
+            border: 2px dashed #ccffcc; /* 搭配主題的淺螢光綠虛線框 */
+            padding: 10px 25px;
+            margin: 15px 0;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2); /* 復古像素感陰影 */
         }
         
-        /* 極簡風格編號 */
         .custom-number {
-            font-size: 2.5rem;
+            font-size: 2.6rem;
             font-weight: bold;
-            color: #000000;
-            letter-spacing: 3px;
-            font-family: monospace, serif;
-            border-bottom: 2px solid #000000;
-            padding: 0 10px;
-            text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.9);
+            color: #ccffcc; /* 淺螢光綠電子字體 */
+            letter-spacing: 5px;
+            font-family: 'Courier New', monospace, serif; /* 換成更有打字機/電子感的字體 */
+            border-bottom: none; 
+            padding: 0;
+            text-shadow: 0px 0px 8px rgba(204, 255, 204, 0.6); /* 淡淡的電子螢光 */
         }
 
         /* 文字連結樣式共用 (規則與下載) */
@@ -147,7 +176,7 @@
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(255, 255, 255, 0.85); /* 換成白色半透明遮罩 */
+            background-color: rgba(255, 255, 255, 0.85); 
             backdrop-filter: blur(3px);
             -webkit-backdrop-filter: blur(3px);
             z-index: 100;
@@ -155,7 +184,6 @@
             align-items: center;
         }
 
-        /* 彈出視窗本體 */
         .modal-content {
             background-color: transparent; 
             border: 2px solid #000000;
@@ -167,7 +195,6 @@
             box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
         }
 
-        /* 關閉按鈕 */
         .close-btn {
             position: absolute;
             top: 6px; right: 6px;
@@ -184,7 +211,6 @@
             color: #666;
         }
 
-        /* 視窗文字排版 */
         .rules-title, .input-title {
             font-size: 1.1rem;
             font-weight: bold;
@@ -202,7 +228,6 @@
         }
         .rules-list li { margin-bottom: 10px; }
 
-        /* 名字輸入框樣式 */
         .name-input {
             width: 100%;
             padding: 10px;
@@ -236,17 +261,8 @@
             color: #fff;
         }
 
-        /* 隱藏的 Canvas */
         #download-canvas {
             display: none;
-        }
-        
-        /* 排版微調 */
-        .info-text {
-            color: #000000; 
-            font-size: 1.05rem; 
-            font-weight: bold;
-            text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.9);
         }
         
         .links-container {
@@ -271,7 +287,7 @@
 
     <div class="counter-box">
         <h2>歡迎加入</h2>
-        <h2 style="margin-bottom: 15px;">有線耳機復活俱樂部</h2>
+        <h2>有線耳機復活俱樂部</h2>
         
         <p class="info-text">您是第</p>
         
@@ -349,6 +365,7 @@
         const duration = 1500; 
         let startTime = null;
 
+        // 你的後台 GAS 網址 (沿用)
         const gasUrl = 'https://script.google.com/macros/s/AKfycbzJDHInkQ5G1_rzHGT2dRBbuJSJyJ0l485zbrEpuwWq60PIU983J9CVrwA1qd4pCPpSGg/exec';
 
         if(gasUrl.indexOf('http') === 0) {
@@ -383,7 +400,7 @@
         }
         requestAnimationFrame(updateCounter);
 
-        // ======= Canvas 繪圖與下載 (極簡 r.jpg 背景版) =======
+        // ======= Canvas 繪圖與下載 =======
         confirmDownloadBtn.addEventListener('click', generateAndDownloadCard);
 
         function generateAndDownloadCard() {
@@ -392,76 +409,10 @@
             const canvas = document.getElementById('download-canvas');
             const ctx = canvas.getContext('2d');
 
-            // 將繪製文字與下載的步驟獨立出來
             function drawTextAndSave() {
-                // 1. 鋪上一層半透明的白紗，讓後面的 r.jpg 若隱若現，但確保黑字能看清楚
+                // 鋪上一層半透明的白紗，讓後面的 r.jpg 若隱若現，但確保黑字能看清楚
                 ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
                 ctx.fillRect(0, 0, 600, 400);
 
-                // 2. 畫一個簡單的黑色邊框
+                // 畫一個簡單的黑色邊框
                 ctx.strokeStyle = '#000000';
-                ctx.lineWidth = 2;
-                ctx.strokeRect(20, 20, 560, 360);
-
-                // 3. 設定通用文字樣式
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillStyle = '#000000'; // 全部都是純黑字
-
-                // 標題
-                ctx.font = 'bold 32px "PML", "PMingLiU", "新細明體", serif';
-                ctx.fillText('歡迎加入有線耳機復活俱樂部', 300, 100);
-
-                // 標題下方的簡單底線
-                ctx.beginPath();
-                ctx.moveTo(120, 140);
-                ctx.lineTo(480, 140);
-                ctx.lineWidth = 1;
-                ctx.stroke();
-
-                // 名字
-                ctx.font = 'bold 24px "PML", "PMingLiU", "新細明體", serif';
-                ctx.fillText(`會員：${name}`, 300, 200);
-
-                // 編號
-                ctx.font = 'bold 24px "PML", "PMingLiU", "新細明體", serif';
-                ctx.fillText(`編號：${formattedNumber}`, 300, 250);
-
-                // 祝福語
-                ctx.font = 'italic 22px "PML", "PMingLiU", "新細明體", serif';
-                ctx.fillText('祝您有玫好的一天', 300, 320);
-
-                // 執行下載
-                nameModal.style.display = 'none';
-                const imageParams = canvas.toDataURL('image/png');
-                const downloadLink = document.createElement('a');
-                downloadLink.download = `wired-revival-card-${formattedNumber}.png`;
-                downloadLink.href = imageParams;
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-            }
-
-            // 🌟 載入你的原始背景圖 r.jpg
-            const bgImg = new Image();
-            bgImg.crossOrigin = "Anonymous"; // 避免跨域問題
-            bgImg.src = 'r.jpg';
-            
-            // 圖片載入成功時：畫上圖片，然後執行文字繪製
-            bgImg.onload = function() {
-                // 將圖片畫滿整個 600x400 的畫布
-                ctx.drawImage(bgImg, 0, 0, 600, 400); 
-                drawTextAndSave();
-            };
-
-            // 如果圖片載入失敗 (例如路徑錯誤)，直接用全白底色代替，不影響下載功能
-            bgImg.onerror = function() {
-                ctx.fillStyle = '#f3f4f6';
-                ctx.fillRect(0, 0, 600, 400);
-                drawTextAndSave();
-            };
-        }
-    </script>
-
-</body>
-</html>
