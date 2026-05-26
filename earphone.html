@@ -3,32 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有線耳機復活計畫 | 會員編號</title>
     <title>秘密基地</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chinese-fonts/pml@1.0.1/dist/index.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: "PML", 'PMingLiU', '新細明體', serif;
+            background-image: url('r.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            backdrop-filter: blur(2px) brightness(95%);
+            -webkit-backdrop-filter: blur(2px) brightness(95%);
+            background-color: rgba(244, 246, 248, 0.4);
+            z-index: 1;
+        }
+
+        /* 🌟 與主頁對齊的頂部導覽列 */
+        .top-nav {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: flex-start;
+            padding: 0 20px;
+            z-index: 10;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .nav-links {
+            background-color: #ccffcc; 
+            border: 1px solid #99ff99;
+            padding: 6px 15px;
+            display: flex;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #0077ff; 
+            text-decoration: underline;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        .nav-links a:hover { color: #00bfff; }
+
+        /* 🌟 你最愛的薄荷綠主區塊 */
+        .counter-box {
+            position: relative;
+            z-index: 2;
+            background-color: #99ffcc; 
+            border: 1px solid #55cc99;
+            border-radius: 4px; 
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
+            max-width: 400px;
+            width: 80%;
+            margin-top: 50px;
+        }
+        h2 { font-size: 1.3rem; color: #000000; margin-bottom: 0px; margin-top: 0; font-weight: bold;}
+        
+        .number-area {
+            display: inline-block;
+            background: #000000; 
+            border: 1px dashed #ffffff;
+            padding: 12px 24px;
+            margin: 15px 0;
+            box-shadow: inset 0 0 10px rgba(204, 102, 255, 0.5);
+        }
+        .custom-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00ffcc; 
+            letter-spacing: 4px;
+            font-family: monospace, serif;
+            text-shadow: 0px 0px 8px #00ffcc, 0px 0px 3px #ffffff;
+        }
+
+        /* 🌟 文字連結樣式 (下載與規則共用) */
+        .rules-link {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #cc66ff;
+            text-decoration: none;
+            border-bottom: 1px dashed #cc66ff; 
+            transition: all 0.2s ease;
+            font-weight: bold;
+            background: transparent;
+            border-top: none; border-left: none; border-right: none;
+            cursor: pointer;
+            padding: 2px 5px;
+        }
+        .rules-link:hover {
+            color: #9900cc; 
+            border-bottom: 1px dashed #9900cc;
+            text-shadow: 0px 0px 5px rgba(204, 102, 255, 0.5);
+        }
+
+        /* 🌟 彈出視窗設計 */
+        .modal-overlay {
+            display: none; 
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 100; 
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #ADFEDC; 
+            border: 2px solid #000000; 
+            box-shadow: 4px 4px 0px rgb(0, 204, 255); 
+            width: 85%;
+            max-width: 350px;
+            padding: 25px 20px;
+            position: relative;
+            text-align: left;
+        }
+        .close-btn {
+            position: absolute;
+            top: 6px; right: 6px;
+            background: #ffcccc; 
+            border: 1px solid #000000;
+            font-family: monospace, serif;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #000;
+            cursor: pointer;
+            padding: 2px 6px;
+        }
+        .close-btn:hover { background: #ff9999; }
+        .rules-title, .input-title {
+            font-size: 1.05rem;
+            font-weight: bold;
+            color: #00BB00;
+            margin-bottom: 15px;
+            text-align: center;
+            text-decoration: underline;
+        }
+        .rules-list { margin: 0; padding-left: 20px; color: #00BB00; font-size: 0.85rem; line-height: 1.6; font-weight: bold;}
+        .rules-list li { margin-bottom: 8px; }
+        
+        .name-input {
+            width: 100%; padding: 10px; font-family: inherit; font-size: 1rem;
+            border: 1px solid #000; margin-bottom: 20px; text-align: center;
+        }
+        .submit-btn {
+            width: 100%; background: #00BB00; color: #fff; border: 1px solid #000;
+            padding: 10px; font-size: 1rem; font-weight: bold; cursor: pointer;
+        }
+        .submit-btn:hover { background: #008800; }
+    </style>
     <link rel="stylesheet" href="style.css?v=10"> 
 </head>
 <body>
 
     <div class="top-nav">
-        <div style="display: flex; flex-direction: column;">
-            <div class="nav-links">
-                <a href="#" id="play-btn">播放</a>
-                <a href="#" id="pause-btn">暫停</a>
-                <a href="#" id="cancel-btn">取消</a>
-                <a href="index.html">回到主頁</a>
-            </div>
-            
-            <div id="inline-yt-player" style="display: none; margin-top: 10px; border: 2px solid #000; background: #ADFEDC; padding: 8px; box-shadow: 4px 4px 0px rgb(0, 204, 255); width: fit-content;">
-                <div style="font-weight: bold; color: #00BB00; margin-bottom: 5px; text-align: center; font-size: 0.8rem;">♪ 播放中 ♪</div>
-                <iframe id="yt-iframe" width="240" height="135" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
+        <div class="nav-links">
+            <a href="#">播放</a>
+            <a href="#">暫停</a>
+            <a href="#">取消</a>
+            <a href="#" id="play-btn">播放</a>
+            <a href="#" id="pause-btn">暫停</a>
+            <a href="#" id="cancel-btn">取消</a>
+            <a href="index.html">回到主頁</a>
         </div>
-    </div>
         <div class="welcome-text">
             🌀歡迎光臨秘密基地🌀
         </div>
     </div>
 
+    <div class="counter-box">
+        <h2>✮ 有線耳機復活計畫 ♫</h2>
+        <p style="color: #339966; margin-bottom: 0px;">恭喜你成為有線耳機復活計畫的一員！</p>
+        <p style="color: #339966; margin-bottom: 0px;">♪ 好時光都該被寶貝因為有線~ ♪</p>
+        <p style="color: #1e293b; margin-bottom: 5px; margin-top: 15px; font-size: 1.1rem; font-weight: bold;">您是第</p>
+        
+        <div class="number-area">
+            <span id="member-id" class="custom-number">000000</span>
     <div class="main-columns">
         <div class="col left-col">
             <a href="https://myship.7-11.com.tw/general/detail/GM2605239792358" target="_blank" class="retro-link blue-link">賣貨便</a>
@@ -36,7 +200,12 @@
             <a href="https://store.line.me/stickershop/product/32046311/zh-Hant" target="_blank" class="retro-link blue-link">恐怕泰龍LINE貼圖</a>
             <a href="https://www.youtube.com/@0ening_2023" target="_blank" class="retro-link blue-link">YouTube作品</a>
         </div>
+
+        <p style="color: #1e293b; margin-top: 5px; font-size: 1.1rem; font-weight: bold;">位加入的會員</p>
         
+        <div style="margin-top: 10px;">
+            <button id="download-trigger-btn" class="rules-link" style="margin-right: 15px;">下載</button>
+            <a href="#" id="open-rules-btn" class="rules-link">✞ 查看會員規則 ✞</a>
         <div class="col right-col">
             <a href="earphone.html" class="retro-link purple-link">加入有線耳機復活計畫</a>
             <a href="#" class="retro-link purple-link">衣服型錄</a>
@@ -45,6 +214,16 @@
         </div>
     </div>
 
+    <div id="rules-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-rules-btn" class="close-btn">X</button>
+            <div class="rules-title">★ 秘密會員規則 ★</div>
+            <ul class="rules-list">
+                <li>1.需每天帶有線耳機出門。</li>
+                <li>2.擁有【有線耳機復活計畫】小卡。</li>
+                <li>3.尊重所有類型的音樂，並遵守「不批判、不比較、不評論」的原則。</li>
+                <li>4.音樂沒有優劣之分，所有人都能擁有自己的信仰。</li>
+            </ul>
     <div id="guestbook" class="guestbook-section">
         <div class="guestbook-title">✑ 秘密留言板</div>
         
@@ -59,7 +238,38 @@
         </div>
     </div>
 
+    <div id="name-modal" class="modal-overlay">
+    <div id="yt-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="close-name-btn" class="close-btn">X</button>
+            <div class="input-title">★ 建立專屬會員卡 ★</div>
+            <p style="color: #00BB00; font-size: 0.85rem; margin-bottom: 15px; text-align: center; font-weight: bold;">請輸入您的暱稱</p>
+            <input type="text" id="user-name-input" class="name-input" placeholder="Name" maxlength="10">
+            <button id="confirm-download-btn" class="submit-btn">確定下載</button>
+            <button id="close-yt-btn" class="close-btn">X</button>
+            <div class="rules-title">♪ 秘密點唱機 ♪</div>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 2px solid #000; background: #000;">
+                <iframe id="yt-iframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+            <p style="color: #00BB00; font-size: 0.85rem; margin-top: 10px; text-align: center; font-weight: bold;">🎶 播放中...</p>
+        </div>
+    </div>
+
+    <canvas id="download-canvas" width="600" height="400" style="display: none;"></canvas>
+
     <script>
+        // ======= 彈出視窗控制 =======
+        const rulesModal = document.getElementById('rules-modal');
+        const nameModal = document.getElementById('name-modal');
+        
+        document.getElementById('open-rules-btn').onclick = (e) => { e.preventDefault(); rulesModal.style.display = 'flex'; };
+        document.getElementById('close-rules-btn').onclick = () => rulesModal.style.display = 'none';
+        document.getElementById('close-name-btn').onclick = () => nameModal.style.display = 'none';
+        document.getElementById('download-trigger-btn').onclick = () => nameModal.style.display = 'flex';
+
+        window.onclick = (e) => {
+            if (e.target === rulesModal) rulesModal.style.display = 'none';
+            if (e.target === nameModal) nameModal.style.display = 'none';
         // ==========================
         // 🌟 音樂播放邏輯
         // ==========================
@@ -71,7 +281,7 @@
         const ytIframe = document.getElementById('yt-iframe');
 
         // 👇 如果你想換歌，改這裡的影片 ID 就好 (跟 earphone.html 的改法一樣)
-        const videoID = "oVZg-WwgivI"; 
+        const videoID = "jfKfPfyJRkM"; 
         const ytSrc = `https://www.youtube.com/embed/${videoID}?autoplay=1`;
 
         playBtn.onclick = (e) => {
@@ -80,12 +290,87 @@
             ytModal.style.display = 'flex';
         };
 
+        // ======= 絕對會動的計數器 =======
+        const numberElement = document.getElementById('member-id');
+        let finalNumber = 0; 
+        
+        // 使用你最新的 GAS 網址
+        const gasUrl = 'https://script.google.com/macros/s/AKfycbytIyUt9P-5lejKe6KfYZxd2VezUG-Hy15wXGmooAQk78Rxw3erRx3HJu07LhawKektfA/exec';
+
+        // 先讓數字瘋狂跳動
+        let isFetched = false;
+        const interval = setInterval(() => {
+            if(!isFetched) numberElement.innerText = Math.floor(Math.random() * 900000 + 100000);
+        }, 80);
+
+        // 抓取真實數字
+        fetch(gasUrl)
+            .then(res => res.json())
+            .then(data => {
+                isFetched = true;
+                clearInterval(interval);
+                finalNumber = data.value;
+                numberElement.innerText = String(finalNumber).padStart(6, '0');
+            })
+            .catch(err => {
+                isFetched = true;
+                clearInterval(interval);
+                finalNumber = 100001;
+                numberElement.innerText = "100001";
+            });
+
+        // ======= Canvas 畫卡片與下載 =======
+        document.getElementById('confirm-download-btn').addEventListener('click', () => {
+            const userNameInput = document.getElementById('user-name-input');
+            const name = userNameInput.value.trim() || '神秘會員'; 
+            const formattedNumber = String(finalNumber).padStart(6, '0');
+            const canvas = document.getElementById('download-canvas');
+            const ctx = canvas.getContext('2d');
+
+            function drawTextAndSave() {
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                ctx.fillRect(0, 0, 600, 400);
+
+                ctx.strokeStyle = '#000000';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(20, 20, 560, 360);
+
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillStyle = '#000000'; 
+
+                ctx.font = 'bold 32px "PML", "PMingLiU", "新細明體", serif';
+                ctx.fillText('歡迎加入有線耳機復活俱樂部', 300, 100);
+
+                ctx.beginPath();
+                ctx.moveTo(120, 140);
+                ctx.lineTo(480, 140);
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                ctx.font = 'bold 24px "PML", "PMingLiU", "新細明體", serif';
+                ctx.fillText(`會員：${name}`, 300, 200);
+
+                ctx.font = 'bold 24px "PML", "PMingLiU", "新細明體", serif';
+                ctx.fillText(`編號：${formattedNumber}`, 300, 250);
+
+                ctx.font = 'italic 22px "PML", "PMingLiU", "新細明體", serif';
+                ctx.fillText('祝您有玫好的一天', 300, 320);
+
+                nameModal.style.display = 'none';
+                const imageParams = canvas.toDataURL('image/png');
+                const downloadLink = document.createElement('a');
+                downloadLink.download = `wired-revival-card-${formattedNumber}.png`;
+                downloadLink.href = imageParams;
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
         function stopVideo() {
             ytModal.style.display = 'none';
             ytIframe.src = ""; 
         }
 
-        // 點暫停或取消，都會把音樂關掉
+        closeYtBtn.onclick = stopVideo;
         pauseBtn.onclick = (e) => { e.preventDefault(); stopVideo(); };
         cancelBtn.onclick = (e) => { e.preventDefault(); stopVideo(); };
 
@@ -148,10 +433,28 @@
                 });
         });
 
+            const bgImg = new Image();
+            bgImg.crossOrigin = "Anonymous"; 
+            bgImg.src = 'r.jpg';
+            
+            bgImg.onload = function() {
+                ctx.drawImage(bgImg, 0, 0, 600, 400); 
+                drawTextAndSave();
+            };
+
+            bgImg.onerror = function() {
+                ctx.fillStyle = '#f3f4f6';
+                ctx.fillRect(0, 0, 600, 400);
+                drawTextAndSave();
+            };
         // 點擊空白處關閉音樂視窗
         window.addEventListener('click', (e) => {
             if (e.target === ytModal) stopVideo();
         });
+    </script>
+    <script>
+        // 👇 如果你想換歌，改這裡的影片 ID 就好 
+            const videoID = "oVZg-WwgivI";
     </script>
 </body>
 </html>
