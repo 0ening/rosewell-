@@ -49,7 +49,7 @@ body::before {
     margin-bottom: 35px;
 }
 
-/* 🌟 完美復原：圓形頭貼樣式 */
+/* 🌟 復原的完美圓形頭貼 */
 .avatar {
     width: 96px;
     height: 96px;
@@ -63,7 +63,8 @@ body::before {
 .name {
     font-size: 1.4rem;
     font-weight: 500;
-    color: #eeffe6;
+    /* 🌟 改回純黑色，搭配紫色光暈有很酷的反差感 */
+    color: #000000; 
     margin-bottom: 8px;
     letter-spacing: 0.5px;
     text-shadow: 0px 0px 12px #cc66ff, 0px 0px 5px #b800ff;
@@ -85,7 +86,7 @@ body::before {
     margin-bottom: 40px;
 }
 
-/* 🌟 基礎連結按鈕設定（全新酷炫圓滑水滴形狀） */
+/* 🌟 基礎連結按鈕設定（水滴形狀 + 隱藏黑邊） */
 .link-btn {
     display: flex;
     align-items: center;
@@ -97,15 +98,16 @@ body::before {
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem; 
-    border: 1px solid #000000; 
     
-    /* 🌟 調整為酷、圓滑且對稱舒服的有機 Blob 水滴形狀 */
+    /* 🌟 把邊框設為透明，這樣出現藍色虛線時才不會跳動 */
+    border: 1px solid transparent; 
+    
+    /* 圓滑對稱的有機 Blob 水滴形狀 */
     border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
     
-    /* 🌟 統一改成你指定的亮淡綠色文字 */
+    /* 亮淡綠色文字 */
     color: #eeffe6; 
     
-    /* 讓形狀扭動時極度流暢 */
     transition: all 0.4s ease-in-out;
 }
 
@@ -118,13 +120,10 @@ body::before {
     object-fit: contain;
 }
 
-/* 🟢 薄荷綠色按鈕（顯眼強烈漸層） */
+/* 🟢 薄荷綠色按鈕（漸層與深色光） */
 .btn-green {
-    /* 🌟 增強對比：從亮薄荷綠漸層到濃郁的科技深綠 */
     background: linear-gradient(135deg, #b3ffec, #00aa6c); 
     box-shadow: 0px 0px 15px rgba(0, 170, 108, 0.5);
-    
-    /* 🌟 深色光影：亮色字體配上深色霓虹底光，字體超清晰 */
     text-shadow: 0px 0px 4px #00593c, 0px 0px 8px #003322;
 }
 
@@ -132,21 +131,20 @@ body::before {
 .btn-green:hover {
     transform: none; 
     background: linear-gradient(135deg, #d8fff5, #00cc82); 
-    border: 1px dashed #000000; 
+    
+    /* 🌟 滑鼠選到才出現的藍色虛線框 */
+    border: 1px dashed #0055ff; 
+    
     box-shadow: 0px 0px 20px rgba(0, 204, 130, 0.8), 2px 2px 0px rgba(0, 0, 0, 0.15);
     
-    /* 🌟 滑鼠移過去時，水滴會圓滑地反向扭動變形 */
+    /* 滑鼠移過的反向扭動變形 */
     border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
 }
 
-/* 🟡 賣貨便粉色按鈕（顯眼草莓牛奶漸層） */
+/* 🟡 賣貨便粉色按鈕（漸層與深色光） */
 .btn-yellow {
-    /* 🌟 增強對比：從亮粉紅漸層到濃郁的莓果深粉 */
     background: linear-gradient(135deg, #ffccd5, #ff3366); 
-    border: 1px solid #ff1a53; 
     box-shadow: 0px 0px 15px rgba(255, 51, 102, 0.5);
-    
-    /* 🌟 深色光影：適合深粉色背景的暗夜霓虹莓紅光，完美襯托 #eeffe6 文字 */
     text-shadow: 0px 0px 4px #990026, 0px 0px 8px #66001a;
 }
 
@@ -154,10 +152,13 @@ body::before {
 .btn-yellow:hover {
     transform: none;
     background: linear-gradient(135deg, #ffedf0, #ff5c8a); 
-    border: 1px dashed #000000; 
+    
+    /* 🌟 滑鼠選到才出現的藍色虛線框 */
+    border: 1px dashed #0055ff; 
+    
     box-shadow: 0px 0px 20px rgba(255, 92, 138, 0.8), 2px 2px 0px rgba(0, 0, 0, 0.15);
     
-    /* 🌟 滑鼠移過去時，水滴會圓滑地反向扭動變形 */
+    /* 滑鼠移過的反向扭動變形 */
     border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
 }
 
