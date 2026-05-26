@@ -55,14 +55,43 @@ body::before {
     margin-bottom: 35px;
 }
 
+/* ========================================= */
+/* 🌟 全新的星星頭貼專區 (Blob/Y2K 形狀)     */
+/* ========================================= */
+
+/* 1. 星星外殼 (這裡負責星星形狀、白邊框、紫色光暈) */
+.avatar-star-wrapper {
+    width: 104px; /* 稍微大一點，因為裡面要留邊框空間 */
+    height: 104px;
+    
+    /* 🌟 魔法數：5 角星的座標 polygon 剪裁路徑 */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    
+    background-color: #ffffff; /* 這裡是星星的白邊框顏色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px auto; /* 置中並空出下方距離 */
+    
+    /* 🌟 星星背後的紫色光暈 (使用 filter: drop-shadow 才能跟隨不規則形狀) */
+    filter: drop-shadow(0px 0px 8px rgba(204, 102, 255, 0.7)); 
+}
+
+/* 2. 頭貼圖片本身 (也要裁切成星星，塞在白框裡面) */
 .avatar {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ffffff;
-    box-shadow: 0 4px 12px rgba(104, 130, 158, 0.1);
-    margin-bottom: 15px;
+    width: 96%; /* 留一點點空隙給外殼當白邊框 */
+    height: 96%;
+    object-fit: cover; /* 確保圖片不變形 */
+    
+    /* 🌟 圖片本身也要設定一樣的星星剪裁路徑 */
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    
+    /* 清空原本的舊設定 */
+    margin: 0; 
+    border: none; 
+    border-radius: 0;
+    box-shadow: none; 
+
 }
 
 .name {
