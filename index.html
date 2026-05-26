@@ -3,65 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ROSEWELL</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <meta property="og:title" content="Rosewell">
-    <meta property="og:description" content="🌀歡迎光臨秘密基地🌀 這裡有我的 Instagram、貼圖作品以及賣場。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://0ening.github.io/rosewell-/">
-    <meta property="og:image" content="https://0ening.github.io/rosewell-/avatar.jpg">
-    <link rel="stylesheet" href="style.css?v=1">
-   
+    <title>秘密基地</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chinese-fonts/pml@1.0.1/dist/index.css">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
-    <div class="container">
-        <header class="profile">
-            <div class="avatar-star-wrapper">
-               <img class="avatar" src="avatar.jpg" alt="Profile Picture">
-            </div>
-            <h1 class="name">☆ Rosewell ☆</h1>
-            <p class="bio">🌀歡迎光臨秘密基地🌀 </p>
-        </header>
-
-        <main class="links-area">
-            
-            <a href="earphone.html" target="_blank" class="link-btn btn-green">
-                <i class="fas fa-headphones btn-icon"></i> <span class="btn-text">加入有線耳機復活計畫 ☆</span>
-            </a>
-            
-            <a href="https://instagram.com/rosewe1l" target="_blank" class="link-btn btn-green">
-                <i class="fab fa-instagram btn-icon"></i>
-                <span class="btn-text">Rosewell</span>
-            </a>
-
-            <a href="https://line.me/S/sticker/33026754" target="_blank" class="link-btn btn-green">
-                <img src="wa2.PNG" class="btn-icon-custom" alt="Frog">
-                <span class="btn-text">【蛙持利斯】LINE貼圖</span>
-            </a>
-         
-            <a href="https://store.line.me/stickershop/product/32046311/zh-Hant" target="_blank" class="link-btn btn-green">
-                <img src="long.PNG" class="btn-icon-custom" alt="Dino">
-                <span class="btn-text">【恐怕泰龍：極端症候群】LINE貼圖</span>
-            </a>
-            
-            <a href="https://myship.7-11.com.tw/general/detail/GM2605239792358" target="_blank" class="link-btn btn-yellow">
-                <i class="fas fa-shopping-bag btn-icon"></i>
-                <span class="btn-text">【賣貨便賣場第二次預購】</span>
-            </a>
-            
-            <a href="https://www.youtube.com/@0ening_2023" target="_blank" class="link-btn btn-green">
-                <i class="fab fa-youtube btn-icon"></i>
-                <span class="btn-text">YouTube</span>
-            </a>
-
-        </main>
-
-        <footer class="footer">
-            <p>© 2026 Crafted by Rosewell</p>
-        </footer>
+    <div class="top-marquee">
+        Rosewell☆Rosewell☆Rosewell☆Rosewell☆Rosewell☆Rosewell☆Rosewell☆Rosewell
+    </div>
+    
+    <div class="top-nav">
+        <div class="nav-links">
+            <a href="#">播放</a>
+            <a href="#">暫停</a>
+            <a href="#">取消</a>
+            <a href="#">回到過去</a>
+        </div>
+        <div class="welcome-text">
+            🌀歡迎光臨秘密基地🌀
+        </div>
     </div>
 
+    <div class="main-columns">
+        <div class="col left-col">
+            <a href="#" class="retro-link blue-link">賣貨便</a>
+            <a href="#" class="retro-link blue-link">原創插畫LINE貼圖</a>
+            <a href="#" class="retro-link blue-link">恐怕泰龍LINE貼圖</a>
+            <a href="#" class="retro-link blue-link">YouTube作品</a>
+        </div>
+        
+        <div class="col right-col">
+            <a href="earphone.html" class="retro-link purple-link">加入有線耳機復活計畫</a>
+            <a href="#" class="retro-link purple-link">衣服型錄</a>
+            <a href="#" class="retro-link purple-link">今天的一首歌：</a>
+            <a href="#guestbook" class="retro-link purple-link">留言板</a>
+        </div>
+    </div>
+
+    <div id="guestbook" class="guestbook-section">
+        <div class="guestbook-title">✑ 秘密留言板</div>
+        
+        <div id="message-list" class="message-list">
+            <div class="loading-msg">讀取最新留言中...</div>
+        </div>
+
+        <div class="guestbook-form">
+            <input type="text" id="gb-name" placeholder="你的暱稱 (選填)" maxlength="10">
+            <input type="text" id="gb-msg" placeholder="說點什麼吧..." maxlength="50">
+            <button id="gb-submit">送出留言</button>
+        </div>
+    </div>
+
+    <script>
+        // 你的 Google Apps Script 網址 (請確認是你剛剛重新部署的那個)
+        const gasUrl = https://script.google.com/macros/library/d/11xt61gI8rgBQsVvcamVNXQcX6kehxTJBDCvjLs5qDgqYlz9T1xtbAym_/3;
+        
+        const msgList = document.getElementById('message-list');
+        const submitBtn = document.getElementById('gb-submit');
+        const nameInput = document.getElementById('gb-name');
+        const msgInput = document.getElementById('gb-msg');
+
+        // 1. 網頁載入時，抓取最新留言
+        function fetchMessages() {
+            fetch(gasUrl)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.messages && data.messages.length > 0) {
+                        msgList.innerHTML = ''; // 清空載入中文字
+                        data.messages.forEach(item => {
+                            const msgDiv = document.createElement('div');
+                            msgDiv.className = 'msg-item';
+                            msgDiv.innerHTML = `<span class="msg-name">${item.name}：</span><span class="msg-content">${item.msg}</span>`;
+                            msgList.appendChild(msgDiv);
+                        });
+                    } else {
+                        msgList.innerHTML = '<div class="loading-msg">目前還沒有留言，搶頭香！</div>';
+                    }
+                })
+                .catch(err => {
+                    msgList.innerHTML = '<div class="loading-msg">讀取失敗，請重新整理。</div>';
+                });
+        }
+        
+        // 啟動抓取
+        fetchMessages();
+
+        // 2. 點擊送出留言
+        submitBtn.addEventListener('click', () => {
+            const name = nameInput.value.trim() || '神秘客';
+            const msg = msgInput.value.trim();
+            
+            if (!msg) {
+                alert('請輸入留言內容喔！');
+                return;
+            }
+
+            submitBtn.innerText = '傳送中...';
+            submitBtn.disabled = true;
+
+            // 組合送出的網址
+            const submitUrl = `${gasUrl}?action=add&name=${encodeURIComponent(name)}&msg=${encodeURIComponent(msg)}`;
+
+            fetch(submitUrl)
+                .then(res => res.json())
+                .then(data => {
+                    // 送出成功，清空輸入框並重新抓取留言
+                    msgInput.value = '';
+                    submitBtn.innerText = '送出留言';
+                    submitBtn.disabled = false;
+                    msgList.innerHTML = '<div class="loading-msg">更新留言中...</div>';
+                    fetchMessages(); // 重新整理列表
+                })
+                .catch(err => {
+                    alert('傳送失敗，請稍後再試。');
+                    submitBtn.innerText = '送出留言';
+                    submitBtn.disabled = false;
+                });
+        });
+    </script>
+</body>
+</html>
 </body>
 </html>
