@@ -61,13 +61,13 @@ body::before {
 
 /* 1. 星星外殼 (這裡負責星星形狀、白邊框、紫色光暈) */
 .avatar-star-wrapper {
-    width: 104px; /* 稍微大一點，因為裡面要留邊框空間 */
-    height: 104px;
+    width: 150px; /* 稍微大一點，因為裡面要留邊框空間 */
+    height: 150px;
     
     /* 🌟 魔法數：5 角星的座標 polygon 剪裁路徑 */
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     
-    background-color: #ffffff; /* 這裡是星星的白邊框顏色 */
+    background-color: #b3ffcc; /* 這裡是星星的白邊框顏色 */
     display: flex;
     justify-content: center;
     align-items: center;
