@@ -144,3 +144,23 @@ body::before {
     border-bottom: 1px dashed #b3ffec; 
     /* 光暈爆亮 */
     text-shadow: 0px 0px 8px #
+/* 🟣 賣貨便紫色文字連結（發光與底線貼緊緊） */
+.btn-yellow {
+    color: #cc66ff; /* 🌟 直接覆蓋成紫色字體 */
+    border-bottom: 2px solid #9933ff; /* 🌟 紫色實線底線，稍微加粗一點點更有個性 */
+    text-shadow: 0px 0px 5px #cc66ff, 0px 0px 12px #6600cc; /* 迷幻深紫光暈 */
+    box-shadow: none;
+    
+    /* 🌟 暴力縮減底部空間，讓線強制貼近文字 (不管圖片死活了！) */
+    padding-bottom: 0px; 
+}
+
+/* 🟣 賣貨便紫色 Hover */
+.btn-yellow:hover {
+    transform: scale(1.05); 
+    color: #e6b3ff; /* 滑鼠移過時字體變亮紫 */
+    border-bottom: 2px dashed #e6b3ff; /* 底線變成亮紫色虛線 */
+    text-shadow: 0px 0px 8px #e6b3ff, 0px 0px 15px #cc66ff; /* 光暈爆亮 */
+    
+    padding-bottom: 0px; /* 保持貼緊的距離 */
+}
