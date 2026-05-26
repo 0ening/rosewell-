@@ -1,4 +1,4 @@
-/* 基礎重設與字體設定 */
+/* 基礎重設 */
 * {
     margin: 0;
     padding: 0;
@@ -6,162 +6,148 @@
 }
 
 body {
-    /* 🌟 iPhone 復古字體終極配方 */
-    font-family: 'Songti TC', 'PMingLiU', '新細明體', 'Kaiti TC', 'BiauKai', serif;
-    color: #000000; 
+    /* 復古新細明體 */
+    font-family: 'Songti TC', 'PMingLiU', '新細明體', serif;
+    
+    /* 🌟 完美模擬圖片的夢幻漸層背景 */
+    background: radial-gradient(circle at center, #e0ffff 0%, #e6e6fa 50%, #b0ffe4 100%);
+    background-size: cover;
+    background-attachment: fixed;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     padding: 20px;
-    position: relative;
-    
-    background-image: url('r.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
-/* 🌟 半透明背景遮罩 */
-body::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    backdrop-filter: blur(2px) brightness(95%); 
-    -webkit-backdrop-filter: blur(2px) brightness(95%);
-    background-color: rgba(244, 246, 248, 0.4); 
-    z-index: 1;
-}
-
-/* 主容器 */
-.container {
+/* 🌟 頂部裝飾跑馬燈 */
+.top-marquee {
     width: 100%;
-    max-width: 580px;
     text-align: center;
-    padding: 30px 20px;
-    position: relative;
-    z-index: 2;
+    color: rgba(153, 153, 153, 0.6);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-family: 'Times New Roman', serif;
 }
 
-/* 個人檔案區樣式 */
-.profile {
-    margin-bottom: 25px; /* 稍微拉近與下方連結的距離 */
-}
-
-/* 🌟 復原的完美圓形頭貼 */
-.avatar {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ffffff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    margin-bottom: 15px;
-}
-
-.name {
-    font-size: 1.4rem;
-    font-weight: bold; /* 加粗讓黑字更明顯 */
-    color: #000000; 
-    margin-bottom: 5px;
-    letter-spacing: 0.5px;
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.8); /* 淡淡白光，防沾黏背景 */
-}
-
-.bio {
-    font-size: 0.95rem;
-    color: #000000;
+/* 🌟 頂部導覽列 */
+.top-nav {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
     font-weight: bold;
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
 }
 
-/* ========================================= */
-/* 🌟 全新：緊密超連結文字區                  */
-/* ========================================= */
+.nav-links a {
+    color: #00bfff; /* 亮藍色 */
+    text-decoration: underline;
+    margin-right: 15px;
+}
+.nav-links a:hover { color: #0088cc; }
 
-.links-area {
+.welcome-text {
+    color: #00bfff;
+}
+
+/* 🌟 雙排連結區 (完美對齊) */
+.main-columns {
+    display: flex;
+    justify-content: center;
+    gap: 80px; /* 左右兩欄的距離 */
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+.col {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* 🌟 大幅縮小間距，讓清單靠得很近 */
-    align-items: center; 
-    margin-bottom: 30px;
+    gap: 15px; /* 連結之間的上下距離 */
 }
 
-/* 基礎文字連結設定 */
-.link-btn {
+/* 復古文字連結共用樣式 */
+.retro-link {
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: underline;
+    transition: all 0.2s;
+}
+
+/* 左邊藍色字 */
+.blue-link { color: #3333cc; }
+.blue-link:hover { color: #0000ff; background: rgba(255,255,255,0.4); }
+
+/* 右邊紫色字 */
+.purple-link { color: #990099; }
+.purple-link:hover { color: #cc00cc; background: rgba(255,255,255,0.4); }
+
+/* ========================== */
+/* 🌟 秘密留言板專區           */
+/* ========================== */
+.guestbook-section {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px dashed #990099;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.guestbook-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #990099;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px solid #990099;
+    padding-bottom: 5px;
+}
+
+.message-list {
+    min-height: 100px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.msg-item {
+    margin-bottom: 8px;
+    border-bottom: 1px dotted rgba(0,0,0,0.1);
+    padding-bottom: 5px;
+}
+.msg-name { font-weight: bold; color: #3333cc; }
+.loading-msg { text-align: center; color: #666; font-style: italic; margin-top: 20px; }
+
+.guestbook-form {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding: 2px 10px; /* 🌟 把文字上下的隱形空間抽掉 */
-    width: auto; 
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.05rem; 
-    
-    /* 徹底清除按鈕的背景與外框 */
+    gap: 10px;
+}
+
+.guestbook-form input {
+    padding: 8px;
+    font-family: inherit;
+    border: 1px solid #ccc;
+    background: rgba(255, 255, 255, 0.7);
+}
+#gb-name { width: 30%; }
+#gb-msg { width: 50%; }
+
+#gb-submit {
+    width: 20%;
+    font-family: inherit;
     background: transparent;
-    border: none;
-    border-radius: 0;
-    
-    color: #000000; /* 🌟 統一為純黑字 */
-    border-bottom: 1.5px solid #000000; /* 🌟 經典的超連結實心黑底線 */
-    text-shadow: 0px 0px 6px rgba(255, 255, 255, 0.9); 
-    
-    transition: all 0.2s ease-in-out;
-}
-
-/* 🌟 圖示稍微縮小，配合緊湊的文字 */
-.btn-icon-custom {
-    width: 28px;       
-    height: 28px;      
-    object-fit: contain;
-    margin-right: 8px; 
-}
-
-/* 清除多餘的內距 */
-.link-btn .btn-text {
-    padding-left: 0; 
-}
-
-/* 🌟 滑鼠移過去的互動變化 */
-.link-btn:hover {
-    transform: scale(1.05); /* 微微放大 */
-    border-bottom: 1.5px dashed #000000; /* 底線變成復古虛線 */
-    background: rgba(255, 255, 255, 0.3); /* 滑鼠滑過時加上一點點白色螢光筆效果 */
-}
-
-/* 滑鼠點擊微幅反饋 */
-.link-btn:active {
-    transform: scale(0.98);
-}
-
-/* 頁尾 */
-.footer {
-    font-size: 0.8rem;
-    color: #000000;
+    border: 1px solid #990099;
+    color: #990099;
     font-weight: bold;
-    letter-spacing: 1px;
-    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.2s;
 }
-
-/* ========================================= */
-/* 🌟 電腦版專屬排版 (雙排黑字緊密版)        */
-/* ========================================= */
-@media (min-width: 768px) {
-    .container {
-        max-width: 750px; 
-    }
-    .links-area {
-        flex-direction: row; 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 20px; /* 電腦版橫向稍微留一點呼吸空間 */
-    }
-    .link-btn {
-        width: calc(50% - 10px); 
-        max-width: 280px; 
-        justify-content: center;
-    }
+#gb-submit:hover {
+    background: #990099;
+    color: #fff;
 }
