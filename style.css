@@ -9,29 +9,44 @@ body {
     /* 復古新細明體 */
     font-family: 'Songti TC', 'PMingLiU', '新細明體', serif;
     
-    /* 🌟 完美模擬圖片的夢幻漸層背景 */
-    background: radial-gradient(circle at center, #e0ffff 0%, #e6e6fa 50%, #b0ffe4 100%);
+    /* 🌟 保留你指定的 r.jpg 背景 */
+    background-image: url('r.jpg');
     background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    position: relative;
 }
 
-/* 🌟 頂部裝飾跑馬燈 */
+/* 背景半透明遮罩，讓字體清楚 */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    backdrop-filter: blur(2px) brightness(95%); 
+    -webkit-backdrop-filter: blur(2px) brightness(95%);
+    background-color: rgba(244, 246, 248, 0.4); 
+    z-index: -1; 
+}
+
+/* 🌟 頂部裝飾跑馬燈 (換回復古灰色) */
 .top-marquee {
     width: 100%;
     text-align: center;
-    color: rgba(153, 153, 153, 0.6);
+    color: rgba(100, 100, 100, 0.8);
+    font-weight: bold;
     font-size: 1.2rem;
     letter-spacing: 2px;
     margin-bottom: 20px;
     font-family: 'Times New Roman', serif;
 }
 
-/* 🌟 頂部導覽列 */
+/* 🌟 頂部導覽列 (換回 Y2K 亮藍色) */
 .top-nav {
     width: 100%;
     max-width: 800px;
@@ -43,21 +58,26 @@ body {
 }
 
 .nav-links a {
-    color: #00bfff; /* 亮藍色 */
+    color: #0077ff; /* 復古經典藍 */
     text-decoration: underline;
     margin-right: 15px;
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
 }
-.nav-links a:hover { color: #0088cc; }
+.nav-links a:hover { 
+    color: #00bfff; /* 滑過變亮藍色 */
+    background: rgba(255,255,255,0.6); 
+}
 
 .welcome-text {
-    color: #00bfff;
+    color: #0077ff;
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
 }
 
 /* 🌟 雙排連結區 (完美對齊) */
 .main-columns {
     display: flex;
     justify-content: center;
-    gap: 80px; /* 左右兩欄的距離 */
+    gap: 80px; 
     width: 100%;
     max-width: 800px;
     margin-bottom: 60px;
@@ -66,7 +86,7 @@ body {
 .col {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* 連結之間的上下距離 */
+    gap: 15px; 
 }
 
 /* 復古文字連結共用樣式 */
@@ -75,24 +95,25 @@ body {
     font-weight: bold;
     text-decoration: underline;
     transition: all 0.2s;
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
 }
 
 /* 左邊藍色字 */
 .blue-link { color: #3333cc; }
-.blue-link:hover { color: #0000ff; background: rgba(255,255,255,0.4); }
+.blue-link:hover { color: #0000ff; background: rgba(255,255,255,0.6); }
 
 /* 右邊紫色字 */
 .purple-link { color: #990099; }
-.purple-link:hover { color: #cc00cc; background: rgba(255,255,255,0.4); }
+.purple-link:hover { color: #cc00cc; background: rgba(255,255,255,0.6); }
 
 /* ========================== */
-/* 🌟 秘密留言板專區           */
+/* 🌟 秘密留言板專區 (換回復古紫色框) */
 /* ========================== */
 .guestbook-section {
     width: 100%;
     max-width: 600px;
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px dashed #990099;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px dashed #990099; /* 復古紫虛線框 */
     padding: 20px;
     border-radius: 10px;
     text-align: left;
@@ -117,10 +138,10 @@ body {
 
 .msg-item {
     margin-bottom: 8px;
-    border-bottom: 1px dotted rgba(0,0,0,0.1);
+    border-bottom: 1px dotted rgba(0,0,0,0.2);
     padding-bottom: 5px;
 }
-.msg-name { font-weight: bold; color: #3333cc; }
+.msg-name { font-weight: bold; color: #3333cc; } /* 留言者名字用藍色 */
 .loading-msg { text-align: center; color: #666; font-style: italic; margin-top: 20px; }
 
 .guestbook-form {
@@ -132,7 +153,7 @@ body {
     padding: 8px;
     font-family: inherit;
     border: 1px solid #ccc;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.9);
 }
 #gb-name { width: 30%; }
 #gb-msg { width: 50%; }
