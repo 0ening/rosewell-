@@ -115,7 +115,7 @@
         
         /* 標題淺螢光綠小方塊 */
         h2 {
-            font-size: 1.4rem;
+            font-size: 1.2rem; /* 稍微縮小字體以容納更多字 */
             color: #000000;
             margin: 0; 
             line-height: 1.2;
@@ -275,95 +275,4 @@
             width: 100%;
             background: transparent;
             color: #990099;
-            border: 1.5px solid #990099;
-            padding: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            font-family: inherit;
-            transition: all 0.2s ease;
-        }
-        .submit-btn:hover {
-            background: #990099;
-            color: #fff;
-        }
-
-        #download-canvas { display: none; }
-        
-        .links-container {
-            margin-top: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="top-nav">
-        <div class="nav-links">
-            <a href="#">播放</a>
-            <a href="#">暫停</a>
-            <a href="#">取消</a>
-            <a href="index.html">回到主頁</a>
-        </div>
-    </div>
-
-    <div class="club-marquee">
-        <marquee scrollamount="4">♫ 歡迎來到類比時代的最後淨土 ♫ 插入有線耳機，隔絕數位世界的喧囂 ♫ 祝您有玫好的一天 ♫</marquee>
-    </div>
-
-    <div class="counter-box">
-        <div class="decor-icon decor-tl">🎧</div>
-        <div class="decor-icon decor-br">★</div>
-
-        <h2>歡迎加入</h2>
-        <h2>有線耳機復活俱樂部</h2>
-        <h2>♪ 好時光都該被寶貝因為有線 ♪</h2>
-        
-        <p class="info-text">您是第</p>
-        
-        <div class="number-area">
-            <span id="member-id" class="custom-number">------</span>
-        </div>
-        
-        <p class="info-text">位會員</p>
-        
-        <div class="links-container">
-            <a href="#" id="open-rules-btn" class="text-link">✟ 點我查看會員規則 ✟</a>
-            <button id="download-trigger-btn" class="text-link" disabled>下載會員卡</button>
-        </div>
-    </div>
-
-    <div id="rules-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button id="close-rules-btn" class="close-btn">X</button>
-            <div class="rules-title">✦ 會員規則 ✦</div>
-            <ul class="rules-list">
-                <li>需每天帶有線耳機出門。</li>
-                <li>擁有【有線耳機復活計畫】小卡。</li>
-                <li>尊重所有類型的音樂，遵守不批判、不比較、不評論。</li>
-                <li>音樂沒有優劣之分，所有人都能擁有自己的信仰。</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="name-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button id="close-name-btn" class="close-btn">X</button>
-            <div class="input-title">✦ 您的會員卡 ✦</div>
-            <p style="color: #000; font-size: 0.9rem; margin-bottom: 15px; text-align: center; font-weight: bold;">請輸入暱稱</p>
-            <input type="text" id="user-name-input" class="name-input" placeholder="Name" maxlength="10">
-            <button id="confirm-download-btn" class="submit-btn">確定產生</button>
-        </div>
-    </div>
-
-    <canvas id="download-canvas" width="600" height="400"></canvas>
-
-    <script>
-        // ======= 彈出視窗控制 =======
-        const rulesModal = document.getElementById('rules-modal');
-        const openRulesBtn = document.getElementById('open-rules-btn');
-        const closeRulesBtn = document.
-            
+            border: 1.5px solid #99
