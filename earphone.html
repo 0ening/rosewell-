@@ -416,3 +416,64 @@
 
                 // 畫一個簡單的黑色邊框
                 ctx.strokeStyle = '#000000';
+                ctx.lineWidth = 2;
+                ctx.strokeRect(20, 20, 560, 360);
+
+                // 設定通用文字樣式
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillStyle = '#000000'; // 全部都是純黑字
+
+                // 標題
+                ctx.font = 'bold 32px "PML", "PMingLiU", "新細明體", serif';
+                ctx.fillText('歡迎加入有線耳機復活俱樂部', 300, 100);
+
+                // 標題下方的簡單底線
+                ctx.beginPath();
+                ctx.moveTo(120, 140);
+                ctx.lineTo(480, 140);
+                ctx.lineWidth = 1;
+                ctx.stroke();
+
+                // 名字
+                ctx.font = 'bold 24px "PML", "PMingLiU", "新細明體", serif';
+                ctx.fillText(`會員：${name}`, 300, 200);
+
+                // 編號
+                ctx.font = 'bold 24px "PML", "PMingLiU", "新細明體", serif';
+                ctx.fillText(`編號：${formattedNumber}`, 300, 250);
+
+                // 祝福語
+                ctx.font = 'italic 22px "PML", "PMingLiU", "新細明體", serif';
+                ctx.fillText('祝您有玫好的一天', 300, 320);
+
+                // 執行下載
+                nameModal.style.display = 'none';
+                const imageParams = canvas.toDataURL('image/png');
+                const downloadLink = document.createElement('a');
+                downloadLink.download = `wired-revival-card-${formattedNumber}.png`;
+                downloadLink.href = imageParams;
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            }
+
+            const bgImg = new Image();
+            bgImg.crossOrigin = "Anonymous"; 
+            bgImg.src = 'r.jpg';
+            
+            bgImg.onload = function() {
+                ctx.drawImage(bgImg, 0, 0, 600, 400); 
+                drawTextAndSave();
+            };
+
+            bgImg.onerror = function() {
+                ctx.fillStyle = '#f3f4f6';
+                ctx.fillRect(0, 0, 600, 400);
+                drawTextAndSave();
+            };
+        }
+    </script>
+
+</body>
+</html>
