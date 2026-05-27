@@ -109,7 +109,7 @@
         const ctx = canvas.getContext('2d');
         const bgImg = new Image();
         
-        bgImg.src = '9.png?' + new Date().getTime(); // 加上時間戳記，強制繞過瀏覽器快取
+        bgImg.src = '9.PNG' + new Date().getTime(); // 加上時間戳記，強制繞過瀏覽器快取
         bgImg.onload = function() {
             ctx.drawImage(bgImg, 0, 0, 600, 400);
             ctx.textAlign = 'center';
