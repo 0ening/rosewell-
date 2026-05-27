@@ -18,6 +18,8 @@ html::before {
 }
 
 body {
+   
+    overflow-x: hidden; /* 防止網頁因為圖片過寬而左右晃動 */
     /* 復古新細明體 */
     font-family: 'Songti TC', 'PMingLiU', '新細明體', serif;
     min-height: 100vh;
