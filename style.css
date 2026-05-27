@@ -257,4 +257,16 @@ body::before {
         width: 100%; /* 讓音樂播放器寬度自動適應 */
         height: auto;
     }
-}
+    @media (max-width: 600px) {
+    /* 讓所有連結所在的區塊內容置中 */
+    .col {
+        align-items: center;    /* 讓 flex 內的項目水平置中 */
+        text-align: center;      /* 讓文字內容置中 */
+    }
+
+    /* 讓導覽列內的連結區塊也置中 */
+    .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;        /* 如果按鈕太多，讓它自動換行並保持置中 */
+        gap: 10px;
+    }
