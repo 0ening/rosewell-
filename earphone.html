@@ -76,44 +76,62 @@
     <div id="name-modal" class="modal-overlay"><div class="modal-content"><button id="close-name-btn" class="close-btn">X</button><div class="rules-title">★ 建立專屬會員卡 ★</div><input type="text" id="user-name-input" class="name-input" placeholder="Name" maxlength="10"><button id="confirm-download-btn" class="submit-btn">確定下載</button></div></div>
     <canvas id="download-canvas" width="600" height="400" style="display: none;"></canvas>
 
-    <script>
-        const rulesModal = document.getElementById('rules-modal');
-        const nameModal = document.getElementById('name-modal');
-        document.getElementById('open-rules-btn').onclick = (e) => { e.preventDefault(); rulesModal.style.display = 'flex'; };
-        document.getElementById('close-rules-btn').onclick = () => rulesModal.style.display = 'none';
-        document.getElementById('close-name-btn').onclick = () => nameModal.style.display = 'none';
-        document.getElementById('download-trigger-btn').onclick = () => nameModal.style.display = 'flex';
+<script>
+    // 1. 彈出視窗控制
+    const rulesModal = document.getElementById('rules-modal');
+    const nameModal = document.getElementById('name-modal');
+    document.getElementById('open-rules-btn').onclick = (e) => { e.preventDefault(); rulesModal.style.display = 'flex'; };
+    document.getElementById('close-rules-btn').onclick = () => rulesModal.style.display = 'none';
+    document.getElementById('close-name-btn').onclick = () => nameModal.style.display = 'none';
+    document.getElementById('download-trigger-btn').onclick = () => nameModal.style.display = 'flex';
 
-        const numberElement = document.getElementById('member-id');
-        const gasUrl = 'https://script.google.com/macros/s/AKfycbytIyUt9P-5lejKe6KfYZxd2VezUG-Hy15wXGmooAQk78Rxw3erRx3HJu07LhawKektfA/exec';
-        fetch(gasUrl).then(res => res.json()).then(data => numberElement.innerText = String(data.value).padStart(6, '0')).catch(() => numberElement.innerText = "100001");
+    // 2. 獲取編號 (加上錯誤捕捉)
+    const numberElement = document.getElementById('member-id');
+    const gasUrl = 'https://script.google.com/macros/s/AKfycbytIyUt9P-5lejKe6KfYZxd2VezUG-Hy15wXGmooAQk78Rxw3erRx3HJu07LhawKektfA/exec';
 
-        document.getElementById('confirm-download-btn').addEventListener('click', () => {
-            const name = document.getElementById('user-name-input').value.trim() || '隱形會員'; 
-            const formattedNumber = numberElement.innerText;
-            const canvas = document.getElementById('download-canvas');
-            const ctx = canvas.getContext('2d');
-            const bgImg = new Image();
-            bgImg.crossOrigin = "Anonymous"; 
-            bgImg.src = '9.png'; 
-            bgImg.onload = function() {
-                ctx.drawImage(bgImg, 0, 0, 600, 400);
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillStyle = '#2F4F4F';
-                ctx.font = 'bold 34px "PML", serif';
-                ctx.fillText('有線耳機復活計畫', 300, 130);
-                ctx.font = '26px "PML", serif';
-                ctx.fillText(`會員：${name}`, 300, 210);
-                ctx.font = 'bold 22px monospace';
-                ctx.fillText(`ID: ${formattedNumber}`, 300, 270);
-                const link = document.createElement('a');
-                link.download = `wired-card-${formattedNumber}.png`;
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-                nameModal.style.display = 'none';
-            };
+    fetch(gasUrl)
+        .then(res => res.json())
+        .then(data => {
+            // 如果 GAS 回傳的是 {value: 123} 結構
+            const num = data.value || data; 
+            numberElement.innerText = String(num).padStart(6, '0');
+        })
+        .catch(err => {
+            console.error("無法抓取編號:", err);
+            numberElement.innerText = "999999"; // 連線失敗顯示預設值
         });
-    </script>
+
+    // 3. 修正下載邏輯 (強制載入圖片)
+    document.getElementById('confirm-download-btn').addEventListener('click', () => {
+        const name = document.getElementById('user-name-input').value.trim() || '隱形會員';
+        const formattedNumber = numberElement.innerText;
+        const canvas = document.getElementById('download-canvas');
+        const ctx = canvas.getContext('2d');
+        const bgImg = new Image();
+        
+        bgImg.src = '9.png?' + new Date().getTime(); // 加上時間戳記，強制繞過瀏覽器快取
+        bgImg.onload = function() {
+            ctx.drawImage(bgImg, 0, 0, 600, 400);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = '#2F4F4F';
+            ctx.font = 'bold 34px "PML", serif';
+            ctx.fillText('有線耳機復活計畫', 300, 130);
+            ctx.font = '26px "PML", serif';
+            ctx.fillText(`會員：${name}`, 300, 210);
+            ctx.font = 'bold 22px monospace';
+            ctx.fillText(`ID: ${formattedNumber}`, 300, 270);
+            
+            const link = document.createElement('a');
+            link.download = `member-${formattedNumber}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+            nameModal.style.display = 'none';
+        };
+        bgImg.onerror = function() {
+            alert("錯誤：找不到 9.png 圖片，請確認檔案是否在同資料夾！");
+        };
+    });
+</script>
 </body>
 </html>
