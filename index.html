@@ -12,17 +12,31 @@
         Rosewell☆Rosewell☆Rosewell☆Rosewell☆Rosewell☆Rosewell☆Rosewell☆Rosewell
     </div>
     
+ <body>
     <div class="top-nav">
-        <div class="nav-links">
-            <a href="https://www.youtube.com/watch?v=ZhIsAZO5gl0">播放</a>
-            <a href="#">暫停</a>
-            <a href="#">取消</a>
-            <a href="index.html">回到主頁</a>
-        </div>
-        <div class="welcome-text">
+        <div class="welcome-text" style="margin-bottom: 10px;">
             🌀歡迎光臨秘密基地🌀
         </div>
+
+        <div style="display: flex; flex-direction: column;">
+            <div class="nav-links">
+                <a href="#" id="play-btn">播放</a>
+                <a href="#" id="pause-btn">暫停</a>
+                <a href="#" id="cancel-btn">取消</a>
+                <a href="index.html">回到主頁</a>
+            </div>
+            
+            <div id="inline-yt-player" style="display: none; margin-top: 10px; border: 2px solid #000; background: #ADFEDC; padding: 8px; box-shadow: 4px 4px 0px rgb(0, 204, 255); width: fit-content;">
+                <div style="font-weight: bold; color: #00BB00; margin-bottom: 5px; text-align: center; font-size: 0.8rem;">♪ 播放中 ♪</div>
+                <iframe id="yt-iframe" width="240" height="135" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
     </div>
+
+### 💡 小提醒：
+如果你移過去後覺得「歡迎光臨」跟「導覽列」靠太近了，你可以修改 `welcome-text` 的樣式（在 `style.css` 或直接在 HTML 裡加上 `style="margin-bottom: 15px;"`），調整它與下方按鈕的距離。
+
+改完後，手機版瀏覽時「歡迎光臨」就會穩穩地出現在按鈕正上方了！這樣看起來更有「入口處」的感覺！
 
     <div class="main-columns">
         <div class="col left-col">
